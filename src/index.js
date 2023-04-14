@@ -1,13 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+
+const theme= createTheme({
+  
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#ffffff',
+        contrastText: 'rgba(0,13,125,0.87)',
+      },
+      secondary: {
+        main: '#1672ff',
+      },
+      background: {
+        default: '#e8e8e8',
+      }
+    }
+  
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <Container disableGutters maxWidth='md'>
+
+        <App />
+      </Container>
+
+    </ThemeProvider>
+
   </React.StrictMode>
 );
 

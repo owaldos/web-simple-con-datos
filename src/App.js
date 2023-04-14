@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ResponsiveAppBar from './Components/ResponsiveAppBar.js';
+import { Box } from '@mui/material';
+import Card from './Components/Card.jsx';
+
+
+
 
 function App() {
   return (
-    <div className="App">
+    <Box   sx={{ justifyContent:'center'}}>
+      
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      
+        <ResponsiveAppBar/>
       </header>
-    </div>
+      <Box sx={{paddingY:6}}></Box>
+      <Box sx={{ justifyContent:'center'}}>
+
+      
+         <Card />
+         <Card/> 
+         <Card/> 
+      </Box>
+
+
+        
+      
+     
+    </Box>
   );
 }
 
