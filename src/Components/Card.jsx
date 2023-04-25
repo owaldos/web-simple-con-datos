@@ -1,4 +1,5 @@
-import * as React from 'react';
+import  React,{ useContext} from 'react';
+import {Context} from '../store/appContext'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -14,7 +15,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import estudiante from '../image/images.jpeg'
+import valentina from '../image/valentina.jpeg'
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,9 +29,13 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard ({foto}) {
+  
+  const {store, actions}= useContext(Context)
+  
+  
   const [expanded, setExpanded] = React.useState(false);
-
+   
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -39,7 +45,7 @@ export default function RecipeReviewCard() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            O
+            <img src={valentina} alt='valentina' width='40px' />
           </Avatar>
         }
         action={
@@ -47,13 +53,13 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Oswaldo Salas"
+        title="Tetina Salas"
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="400"
-        image={estudiante}
+        image={foto}
         alt="Paella dish"
       />
       <CardContent>
