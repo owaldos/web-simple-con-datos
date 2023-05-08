@@ -1,4 +1,4 @@
-import  React,{ useContext} from 'react';
+import  React,{ useState, useContext} from 'react';
 import {Context} from '../store/appContext'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -13,9 +13,15 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import valentina from '../image/valentina.jpeg'
+import { Menu, Box, List,ListItem,ListItemButton,ListItemIcon,ListItemText, Divider} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 
 const ExpandMore = styled((props) => {
@@ -29,9 +35,19 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard ({foto}) {
+export default function RecipeReviewCard ({datos}) {
   
   const {store, actions}= useContext(Context)
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  
+const handleOpenUserMenu = (event) => {
+  setAnchorElUser(event.currentTarget);
+};
+
+const handleCloseUserMenu = () => {
+  setAnchorElUser(null);
+};
+
   
   
   const [expanded, setExpanded] = React.useState(false);
@@ -39,27 +55,93 @@ export default function RecipeReviewCard ({foto}) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  //  enviar a perfil
+  const navigate = useNavigate()
+
+  const handlePerfil = () => {
+    navigate('/Mi Perfil')
+  }
+
+  const list = () => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={handleCloseUserMenu}
+     onKeyDown={handleCloseUserMenu}
+      
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   return (
-    <Card sx={{ maxWidth: 720, marginX:'auto', marginY: 2 }}>
+    <Card sx={{ maxWidth: 720, marginX:'auto', marginY: 1}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            <img src={valentina} alt='valentina' width='40px' />
+          <Avatar onClick={handlePerfil} sx={{ bgcolor: red[500] }} aria-label="recipe">
+            <img src={datos.avatar} alt='valentina' width='40px' />
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
+          <IconButton aria-label="settings" onClick={handleOpenUserMenu}>
             <MoreVertIcon />
           </IconButton>
         }
-        title="Tetina Salas"
+        title={datos.name}
         subheader="September 14, 2016"
       />
+
+        <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            
+            >
+             
+             
+             {list()}
+
+            </Menu>
+
       <CardMedia
         component="img"
         height="400"
-        image={foto}
+        image={datos.img}
         alt="Paella dish"
       />
       <CardContent>

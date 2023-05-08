@@ -1,16 +1,21 @@
 import React from 'react';
 import injectContext from './store/appContext';
-import Home from './Components/Home'
-import EquipoTrabajo from './Components/EquipoTrabajo';
-import Migrado from './Components/Migrado';
+import Home from './Components/views/Home'
+import EquipoTrabajo from './Components/views/EquipoTrabajo';
+import SelecGrado from './Components/views/SelecGrado';
 import Error from './Components/Error';
-import MiMenu from './Components/MiMenu'
-import SignIn from './Components/SignIn';
-import SignUp from './Components/SignUp';
+import MiMenu from './Components/views/MiMenu'
+import SignIn from './Components/views/SignIn';
+import SignUp from './Components/views/SignUp';
 import './index.css';
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Notificaciones from './Components/Notificaciones';
+import Notificaciones from './Components/views/Notificaciones';
+import Estudiantes from './Components/views/Estudiantes';
+import ProyectosGrado from './Components/views/ProyectosGrado';
+import NotificacionesGrado from './Components/views/NotificacionesGrado';
+import MenuGrado from './Components/views/MenuGrado';
+import Migrado from './Components/views/Migrado';
 
 
 const theme= createTheme({
@@ -34,6 +39,8 @@ const theme= createTheme({
 })
 
 
+
+
 const router = createBrowserRouter([
 
 {
@@ -47,10 +54,7 @@ const router = createBrowserRouter([
   element:<EquipoTrabajo/>,
   
 },
-{
-  path: '/miGrado',
-  element:<Migrado/>
-},
+
 {
   path: '/notificaciones',
   element:<Notificaciones/>
@@ -73,6 +77,32 @@ const router = createBrowserRouter([
   element:<Error/>
 },
 
+// estos son los path del grado
+{
+  path: '/selecGrado',
+  element: <SelecGrado/>
+},
+{
+  path: '/miGrado/:grado',
+  element: <Migrado/>
+},
+
+{
+  path: '/miGrado/:grado/estudiantes',
+  element:<Estudiantes/>
+},
+{
+  path: '/miGrado/:grado/proyectos',
+  element:<ProyectosGrado/>
+},
+{
+  path: '/miGrado/:grado/notificacionesGrado',
+  element:<NotificacionesGrado/>
+},
+{
+  path: '/miGrado/:grado/menuGrado',
+  element:<MenuGrado/>
+},
 
 ])
 

@@ -6,10 +6,10 @@ import { Grid, Box,Container, Typography,Toolbar, AppBar, Divider} from '@mui/ma
 import logo from '../image/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
-import { Link, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import BotonIrEscuela from './BotorIrEscuela'
 import './../App.css'
-import Navegador from './Navegador'
+import NavegadorGrado from './NavegadorGrado'
 import MiAvatar from './MiAvatar'
 
 
@@ -31,12 +31,13 @@ function HideOnScroll(props) {
 
 
 
-function ResponsiveAppBar(props) {
+function ResponsiveAppBarGrado({props,grado}) {
  
  const {store }=useContext(Context);
- const navigate = useNavigate()
- const handleClick=()=>{
-  navigate('/faceschool')
+ const navigate= useNavigate()
+
+ const handleClick= ()=>{
+  navigate(`/selecGrado`)
  }
 
 
@@ -45,14 +46,19 @@ function ResponsiveAppBar(props) {
     <HideOnScroll {...props} >
       <Container disableGutters={true} >
         <AppBar elevation={1} >
+
+          <BotonIrEscuela/>
+          <Divider/>
+
+
           <Toolbar disableGutters={true} sx={{justifyContent:'center'}} >
             <Grid container   alignItems="center"  sx={{maxWidth:900, minWidth:350, mt:1}}>
 
-
+              
               <Grid 
                 container 
                 alignItems="center"
-              >
+                >
                 <Grid  
                   container 
                   item xs={9} 
@@ -65,19 +71,18 @@ function ResponsiveAppBar(props) {
                     <img src= {logo} alt="logo" width="30px" height="30px" />
                   </Box>
 
-                
-                 
+                   
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       noWrap
                       component="div"
                       color='main.contrastText'
                       sx={{mx: 1,}}
                       onClick={handleClick}
                     >
-                           {store.escuela[0].name}
+                           {grado.seleccionDelUsuario.grado}
                     </Typography>
-                 
+                  
                   
                 </Grid>
                     
@@ -90,14 +95,14 @@ function ResponsiveAppBar(props) {
                   alignItems="center" 
                   paddingRight={2}
                 >  
-                  <MiAvatar  foto={store.usuario[0].img} />
+                  <MiAvatar  foto={grado.img} />
                 </Grid>
 
 
               </Grid>
                    
                  
-              <Navegador/> 
+              <NavegadorGrado grado={grado}/> 
             </Grid>
           </Toolbar>
        
@@ -106,12 +111,12 @@ function ResponsiveAppBar(props) {
        <Divider/>
       </Container>
     </HideOnScroll>
-     <Box sx={{paddingY:6}}></Box>
+     <Box sx={{paddingY:7}}></Box>
        
   </>
   );
 }
-export default ResponsiveAppBar;
+export default ResponsiveAppBarGrado;
                 
                 
 

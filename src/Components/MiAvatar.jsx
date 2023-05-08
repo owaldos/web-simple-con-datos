@@ -1,54 +1,94 @@
-import React,{useState, useContext} from 'react'
+import React,{ useState, useContext} from 'react'
 import { Context } from '../store/appContext';
-import { Box, Tooltip, IconButton,Menu,MenuItem, Typography,Avatar} from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Box, IconButton,
+  Avatar,List, ListItem, ListItemButton,
+  ListItemIcon, ListItemText, Divider} from '@mui/material'
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import Drawer from '@mui/material/Drawer';
 
-const settings = ['Ingresar', 'Registrarme', 'Mi Perfil'];
+
 
 
 const MiAvatar = ({foto}) => {
   const {store, action}= useContext(Context)
+  const [state, setState] = useState(false)
 
-    const [anchorElUser, setAnchorElUser] = useState(null);
+  const handleClick = (event) => {
+   
+   if (
+     event &&
+     event.type === 'keydown' &&
+     (event.key === 'Tab' || event.key === 'Shift')
+   ) {
+     return;
+   }
+ 
+   setState(state=== true ? false :true)
+   
+ };
+ 
   
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
+
+    const list = () => (
+      <Box
+        sx={{ width: 250 }}
+        role="presentation"
+        onClick={handleClick}
+        onKeyDown={handleClick}
+       
+      >
+        <List>
+          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    );
   return (
     <Box sx={{ flexGrow: 0 }}>
-    <Tooltip title="Configuraciones">
-      <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-        <Avatar alt="foto usuario" src={store.img}/>
+    
+      <IconButton  sx={{ p: 0 }} onClick={handleClick} >
+        <Avatar alt="foto usuario" src={foto}/>
       </IconButton>
-    </Tooltip>
-    <Menu
-      sx={{ mt: '45px' }}
-      id="menu-appbar"
-      anchorEl={anchorElUser}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={Boolean(anchorElUser)}
-      onClose={handleCloseUserMenu}
-    >
-      {settings.map((setting) => (
-        <MenuItem key={setting} onClick={handleCloseUserMenu}>
-          <Link to={`/${setting}`}>
-            <Typography textAlign="center">{setting}</Typography>
-          </Link>
-        </MenuItem>
-      ))}
-    </Menu>
+   
+     {state===true && 
+
+
+     <Drawer
+            anchor='right'
+            open ={state}
+            onClose={handleClick}
+          >
+          
+          {list()}
+          </Drawer>
+
+
+     }
+
+
+    
   </Box>
   )
 }

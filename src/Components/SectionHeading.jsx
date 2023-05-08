@@ -16,15 +16,15 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 
-const SectionHeading = ({number}) => {
-  
+const SectionHeading = ({number, name,boton}) => {
+ 
   const navigate= useNavigate()
   
   const handleClick=()=>{
     navigate('/Mi Perfil')
   }
   return (
-    <Paper  sx={{ mt:3}}>
+    <Paper elevation={0} sx={{ my:0}}>
 
     <Grid 
       container
@@ -36,17 +36,17 @@ const SectionHeading = ({number}) => {
 
         <Grid 
         item
-        xs={8} 
+        xs={boton=== undefined ? 12:8 } 
         display='flex'
         justifyContent="flex-start"
         alignItems="center" 
         
         >
             <Box  sx={{mx:5}}> 
-                <Typography variant="h6" color='primary.contrastText'>Perfiles  </Typography>
+                <Typography variant="h5" color='primary.contrastText'> {name} </Typography>
                 
             </Box>
-
+           
             <Box>
             <Typography variant="p" color='error'> {number}  </Typography>
             </Box> 
@@ -54,12 +54,18 @@ const SectionHeading = ({number}) => {
 
         </Grid>
 
+        { boton === true && 
 
         <Grid
         item
-        xs={2} 
+        xs={4} 
+        display='flex'
         alignItems="center"
+        justifyContent={'end'}
+        paddingRight={2}
         >
+
+
           <Box >
 
               <ColorButton 
@@ -74,6 +80,7 @@ const SectionHeading = ({number}) => {
           </Box>
           
         </Grid>
+          }
 
     </Grid>
   </Paper>

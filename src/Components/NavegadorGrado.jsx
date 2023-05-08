@@ -1,24 +1,23 @@
 import React,{useContext} from 'react';
 import {Context} from '../store/appContext'
-import {Home} from '@mui/icons-material';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
 import { Grid, IconButton,  Badge,  Tooltip} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import LocalLibrary from '@mui/icons-material/LocalLibrary';
-import { NavLink} from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import ListIcon from '@mui/icons-material/List';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { NavLink } from 'react-router-dom';
 import './../App.css'
 
 
 
 
 
-function Navegador() {
+function NavegadorGrado({grado}) {
     const {store} = useContext(Context)
+    
 
-  
+    
   return (
 
     <Grid container   alignItems="center"  sx={{maxWidth:900, minWidth:350}}>
@@ -35,14 +34,15 @@ function Navegador() {
         >
         <Grid item >
             <NavLink 
-            to={'/faceschool'} 
+            to={`/miGrado/${grado.seleccionDelUsuario.grado}`} 
             className={({ isActive }) =>
-                isActive ? "active" : ''
-            }>
+            isActive ? "active":''
+        }>
+           
                 
-            <Tooltip title="Pag principal">
+            <Tooltip title="Pag principal del grado">
                 <IconButton  color='secondary'>
-                <Home />
+                <HomeIcon/>
                 </IconButton>
             </Tooltip>
             </NavLink>
@@ -50,7 +50,7 @@ function Navegador() {
         
 
         <Grid item>
-            <NavLink to={'/equipoTrabajo'}
+            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/estudiantes`}
                 className={({ isActive, isPending }) =>
                 isActive
                 ? "active"
@@ -58,11 +58,10 @@ function Navegador() {
                 ? "pending"
                 : ""
                 }>
-            <Tooltip title="Personal Docente">
+            <Tooltip title="Estudiantes">
                 <IconButton color='secondary'>
-                
-                <SwitchAccountIcon />
-                </IconButton >
+                <Diversity1Icon/>
+                </IconButton>
             </Tooltip>    
             </NavLink>
         </Grid>
@@ -71,7 +70,7 @@ function Navegador() {
 
 
         <Grid item>
-            <NavLink to={'/selecGrado'}
+            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/proyectos`}
             className={({ isActive, isPending }) =>
             isActive
             ? "active"
@@ -80,9 +79,9 @@ function Navegador() {
             : ""
         }
             >
-            <Tooltip title="Mi grado">
+            <Tooltip title="Proyectos">
                 <IconButton  color='secondary'>
-                <LocalLibrary />
+               < AutoStoriesIcon/>
                 </IconButton>
             </Tooltip>
             </NavLink>
@@ -93,7 +92,7 @@ function Navegador() {
 
         <Grid item>
             <NavLink 
-            to={'/Notificaciones'}
+            to={`/miGrado/${grado.seleccionDelUsuario.grado}/notificacionesGrado`}
             className={({ isActive }) =>
                 isActive ? "active":''
             }>
@@ -101,14 +100,14 @@ function Navegador() {
 
                 <IconButton color='secondary'>
                 <Badge
-                badgeContent={store.escuela[0].notificaciones.filter(item=> item.visto===false).length} 
+                badgeContent={grado.notificaciones.length} 
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
                 }}
                 color="error"
                 >
-                    <NotificationsActiveIcon />
+                    <NotificationsActiveIcon/>
                 </Badge>
                 </IconButton>
             </Tooltip>
@@ -118,7 +117,7 @@ function Navegador() {
         
 
         <Grid item>
-            <NavLink to={'/menu'}
+            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/menuGrado`}
             className={({ isActive, isPending }) =>
             isActive
             ? "active"
@@ -129,7 +128,7 @@ function Navegador() {
             >
             <Tooltip title="Menu">
                 <IconButton  color='secondary'>
-                <MenuIcon />
+                <ListIcon/>
                 </IconButton>
             </Tooltip>
 
@@ -144,6 +143,6 @@ function Navegador() {
     
   );
 }
-export default Navegador;
+export default NavegadorGrado;
               
            
