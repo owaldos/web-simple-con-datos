@@ -6,11 +6,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import ListIcon from '@mui/icons-material/List';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './../App.css'
-
-
-
+import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
 
 
 function NavegadorGrado({grado}) {
@@ -30,113 +28,133 @@ function NavegadorGrado({grado}) {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        columnSpacing={{xs:3.5,sm:12}}
+        columnSpacing={{xs:2,sm:10}}
         >
-        <Grid item >
-            <NavLink 
-            to={`/miGrado/${grado.seleccionDelUsuario.grado}`} 
-            className={({ isActive }) =>
-            isActive ? "active":''
-        }>
-           
-                
-            <Tooltip title="Pag principal del grado">
-                <IconButton  color='secondary'>
-                <HomeIcon/>
-                </IconButton>
-            </Tooltip>
-            </NavLink>
-        </Grid>
-        
 
-        <Grid item>
-            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/estudiantes`}
-                className={({ isActive, isPending }) =>
-                isActive
-                ? "active"
-                : isPending
-                ? "pending"
-                : ""
-                }>
-            <Tooltip title="Estudiantes">
-                <IconButton color='secondary'>
-                <Diversity1Icon/>
-                </IconButton>
-            </Tooltip>    
-            </NavLink>
-        </Grid>
-
-            
-
-
-        <Grid item>
-            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/proyectos`}
-            className={({ isActive, isPending }) =>
-            isActive
-            ? "active"
-            : isPending
-            ? "pending"
-            : ""
-        }
-            >
-            <Tooltip title="Proyectos">
-                <IconButton  color='secondary'>
-               < AutoStoriesIcon/>
-                </IconButton>
-            </Tooltip>
-            </NavLink>
-        </Grid>
-
-
-
-
-        <Grid item>
-            <NavLink 
-            to={`/miGrado/${grado.seleccionDelUsuario.grado}/notificacionesGrado`}
-            className={({ isActive }) =>
-                isActive ? "active":''
-            }>
-            <Tooltip title="Notificaciones">
-
-                <IconButton color='secondary'>
-                <Badge
-                badgeContent={grado.notificaciones.length} 
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                color="error"
+            <Grid item >
+                <Link 
+                    to={'/faceschool'} 
+                    
                 >
-                    <NotificationsActiveIcon/>
-                </Badge>
-                </IconButton>
-            </Tooltip>
-            </NavLink>
             
-        </Grid>
+                    
+                    <Tooltip title="Regresar">
+                        <IconButton  color='secondary' >
+                            <ArrowCircleLeftRoundedIcon />
+                        </IconButton>
+                    </Tooltip>
+                </Link>
+            </Grid>
+
+            <Grid item >
+                <NavLink 
+                    to={`/miGrado/${grado.seleccionDelUsuario.grado}`} 
+                    className={({ isActive }) =>
+                    isActive ? "active":''
+                    }
+                >
+            
+                    
+                <Tooltip title="Pag principal del grado">
+                    <IconButton  color='secondary'>
+                    <HomeIcon/>
+                    </IconButton>
+                </Tooltip>
+                </NavLink>
+            </Grid>
         
 
-        <Grid item>
-            <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/menuGrado`}
-            className={({ isActive, isPending }) =>
-            isActive
-            ? "active"
-            : isPending
-            ? "pending"
-            : ""
-        }
-            >
-            <Tooltip title="Menu">
-                <IconButton  color='secondary'>
-                <ListIcon/>
-                </IconButton>
-            </Tooltip>
+            <Grid item>
+                <NavLink to={`/miGrado/${grado.seleccionDelUsuario.grado}/estudiantes`}
+                    className={({ isActive, isPending }) =>
+                    isActive
+                    ? "active"
+                    : isPending
+                    ? "pending"
+                    : ""
+                    }>
+                <Tooltip title="Estudiantes">
+                    <IconButton color='secondary'>
+                    <Diversity1Icon/>
+                    </IconButton>
+                </Tooltip>    
+                </NavLink>
+            </Grid>
 
-            </NavLink>
-        </Grid>
+            
+
+
+            <Grid item>
+                <NavLink 
+                    to={`/miGrado/${grado.seleccionDelUsuario.grado}/proyectos`}
+                    className={({ isActive, isPending }) =>
+                    isActive
+                    ? "active"
+                    : isPending
+                    ? "pending"
+                    : ""
+                    }
+                >
+                    <Tooltip title="Proyectos">
+                        <IconButton  color='secondary'>
+                        < AutoStoriesIcon/>
+                        </IconButton>
+                    </Tooltip>
+                </NavLink>
+            </Grid>
+
+
+
+
+            <Grid item>
+                <NavLink 
+                    to={`/miGrado/${grado.seleccionDelUsuario.grado}/notificacionesGrado`}
+                    className={({ isActive }) =>
+                        isActive ? "active":''
+                    }
+                >
+                    <Tooltip title="Notificaciones">
+
+                        <IconButton color='secondary'>
+                            <Badge
+                                badgeContent={1} 
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                color="error"
+                            >
+                                <NotificationsActiveIcon/>
+                            </Badge>
+                        </IconButton>
+                    </Tooltip>
+                </NavLink>
+                
+            </Grid>
+            
+
+            <Grid item>
+                <NavLink
+                    to={`/miGrado/${grado.seleccionDelUsuario.grado}/menuGrado`}
+                    className={({ isActive, isPending }) =>
+                    isActive
+                    ? "active"
+                    : isPending
+                    ? "pending"
+                    : ""
+                    }
+                >
+                    <Tooltip title="Menu">
+                        <IconButton  color='secondary'>
+                            <ListIcon/>
+                        </IconButton>
+                    </Tooltip>
+
+                </NavLink>
+            </Grid>
 
         </Grid>
-        
+            
 
 
     </Grid>

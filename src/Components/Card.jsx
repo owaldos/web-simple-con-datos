@@ -1,4 +1,4 @@
-import  React,{ useState, useContext} from 'react';
+import  React,{ useContext, useState} from 'react';
 import {Context} from '../store/appContext'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -12,15 +12,17 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Menu, Box, List,ListItem,ListItemButton,ListItemIcon,ListItemText, Divider} from '@mui/material';
+import {  Badge,  Box,  Button,  Divider, Grid} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-
-
+import ThumbUpOffAltOutlinedIcon from '@mui/icons-material/ThumbUpOffAltOutlined';
+import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import EtiquetaComentarios from './EtiquetaComentarios';
+import { blue } from '@mui/material/colors';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 
@@ -35,68 +37,90 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard ({datos}) {
-  
-  const {store, actions}= useContext(Context)
-  const [anchorElUser, setAnchorElUser] = useState(null);
-  
-const handleOpenUserMenu = (event) => {
-  setAnchorElUser(event.currentTarget);
-};
 
-const handleCloseUserMenu = () => {
-  setAnchorElUser(null);
-};
 
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(blue[500]),
+  backgroundColor: blue[500],
+  '&:hover': {
+    backgroundColor: blue[700],
+  },
+}));
+
+export default function RecipeReviewCard ({datos, index}) {
   
   
-  const [expanded, setExpanded] = React.useState(false);
-   
+  const { store,actions}= useContext(Context)
+  const navigate = useNavigate()
+  
+  
+  const [expanded, setExpanded] = useState(false);
+  const [valorInput, setValorInput] = useState('');
+  const [stateComentar, setStateComentar]= useState(false)
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    setStateComentar(false)
   };
+
+
+
+  const handleClick=()=>{
+    if(expanded===false){
+      handleExpandClick()
+      setStateComentar(true)
+    } else 
+     setStateComentar(stateComentar===true? false:true)
+  }
+
+  
+
+  //  BOTON ENVIAR
+  const handleValorInput =()=>{
+    if(valorInput!== ''&& datos.ref!== 'escuela'){
+    
+      actions.setNewComentarioPublicacionGrado({
+        valor:valorInput,
+        usuario:store.usuario[0].name,
+        fecha:'5 febrero',
+        avatar:store.usuario[0].img,
+        respuestas:[]
+      },index)
+
+      setValorInput('')
+      setStateComentar(false)
+    }else if(valorInput!== ''&& datos.ref=== 'escuela'){
+      
+      actions.setNewComentarioPublicacionEscuela({
+        valor:valorInput,
+        usuario:store.usuario[0].name,
+        fecha:'5 febrero',
+        avatar:store.usuario[0].img,
+        respuestas:[]
+      },index)
+      setValorInput('')
+      setStateComentar(false)
+    }
+  }
+
+
   //  enviar a perfil
-  const navigate = useNavigate()
 
   const handlePerfil = () => {
     navigate('/Mi Perfil')
   }
 
-  const list = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={handleCloseUserMenu}
-     onKeyDown={handleCloseUserMenu}
-      
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+
+  const like=()=>{
+    let cuenta= datos.like===true?datos.numLike-1:datos.numLike+1
+    let dato= datos.like===true? false:true
+    actions.setLike(index,dato,cuenta)
+    
+  }
+
+  
+  
+  
 
   return (
     <Card sx={{ maxWidth: 720, marginX:'auto', marginY: 1}}>
@@ -107,94 +131,231 @@ const handleCloseUserMenu = () => {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings" onClick={handleOpenUserMenu}>
+          <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
+        
         title={datos.name}
         subheader="September 14, 2016"
       />
 
-        <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            
-            >
-             
-             
-             {list()}
-
-            </Menu>
+     
 
       <CardMedia
-        component="img"
-        height="400"
+        component="img" 
         image={datos.img}
-        alt="Paella dish"
+        alt="imagen de la  publicacion"
       />
+     
+
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {datos.contenido}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
+
+
+      <CardActions disableSpacing  sx={{padding:0}}>
+          <Grid container justifyContent={'center'}>
+            <Grid item xs={6} display="flex">
+
+                   {/* corazon LIKE */}
+              
+              <IconButton 
+                aria-label="add to favorites" 
+                size="large" 
+                onClick={like}
+                sx={{paddingLeft:2}}
+              >
+                {/* contador de  LIKE */}
+                <Badge
+                  badgeContent={datos.numLike} 
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  color="error"
+                >
+
+                  <FavoriteIcon color= {datos.like===true? 'error':''}/>
+                          
+                </Badge>
+                 {/* cierre de contador de  LIKE */}
+              </IconButton>
+
+             {/* condicion de like */}
+
+              {datos.like === true && datos.numLike>2
+                ?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}} color= 'text.secondary'  >
+                    Tu y {datos.numLike-1} personas mas
+                </Typography>
+                :datos.like===true && datos.numLike===2
+                ?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}} color= 'text.secondary'  >
+                Tu y {datos.numLike-1} persona mas
+                </Typography>
+                :datos.like=== true && datos.numLike===1?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}} color= 'text.secondary' >
+                  Tu 
+                </Typography>
+                :datos.like=== false && datos.numLike===1
+                ?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}} color= 'text.secondary' >
+                  A una persona 
+                </Typography>
+                :datos.numLike===null ||datos.numLike=== 0?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}}color= 'text.secondary'  >
+                  0 like
+                </Typography>
+                :datos.like===false ||datos.numLike> 1?
+                <Typography variant="caption" display="flex" sx={{alignItems:'center', fontSize:10}} color= 'text.secondary' >
+                  A {datos.numLike} personas 
+                </Typography>
+                :null
+
+              }
+              {/* cierra condicion de like */}
+
+            </Grid>
+
+            <Grid  item  xs={6} container justifyContent="end" display={'flex'}>
+              <Grid item xs={12} container justifyContent="end" alignItems='center' >
+                <Grid item  >
+
+                    <Typography 
+                      variant="caption" 
+                      display="inline" 
+                      sx={{alignItems:'center', fontSize:10}} 
+                      color= 'text.secondary'
+                      onClick={handleExpandClick}
+                    >
+                      Comentarios: {datos.comentarios.length} 
+                    </Typography>   
+              </Grid>
+
+              <Grid item >
+
+                  <ExpandMore
+                    expand={expanded}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                  
+                  </ExpandMore>
+              </Grid>
+              </Grid>
+
+            </Grid>
+         </Grid>
+
       </CardActions>
+      <Divider/>
+      <Grid container spacing='0'>
+
+        <Grid  item display={'flex'} xs={5} justifyContent={'center'}>
+          <Box  display={'flex'} onClick={like}>
+            <IconButton aria-label="ThumbUpOffAltOutlined" sx={{ml:2}} >  
+              <ThumbUpOffAltOutlinedIcon/>
+            </IconButton>
+            <Typography variant="caption" display="flex" sx={{alignItems:'center'}} color= 'text.secondary'  >
+              Me gusta
+            </Typography>
+          </Box>
+        </Grid>
+
+
+        <Grid item xs={7} display="flex" justifyContent={'center'} >
+          <Box  display={'flex'} onClick={handleClick}>
+            <IconButton aria-label="ChatBubbleOutlineOutlinedIcon" sx={{ml:2}} onClick={handleClick}>  
+              <ChatBubbleOutlineOutlinedIcon/>
+            </IconButton>
+
+            <Typography 
+              variant="caption" 
+              display="flex" 
+              sx={{alignItems:'center'}} 
+              color= 'text.secondary'
+              onClick={handleClick} 
+            >  
+              Comentar
+            </Typography>
+
+          </Box>
+        </Grid>
+
+      </Grid>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-            aside for 10 minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is absorbed,
-            15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-            mussels, tucking them down into the rice, and cook again without
-            stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don&apos;t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
+        
+        <CardContent sx={{py:0}}>
+          {stateComentar===true&&
+            <>
+              <TextField 
+                id="inputComenta" 
+                label="Comenta" 
+                variant="outlined"
+                fullWidth 
+                type= 'text'
+                multiline
+                value={valorInput}
+                color="secondary" focused 
+                InputProps={{
+                  endAdornment: 
+                  <InputAdornment position="end">
+                     <IconButton aria-label="HighlightOffIcon" onClick={handleClick}>  
+                        <HighlightOffIcon/>
+                    </IconButton>
+
+                  </InputAdornment>,
+                }}
+                onChange={(e)=>setValorInput(e.currentTarget.value)}
+                
+              />
+
+              <Grid container >
+                <Grid
+                  item
+                  xs={12} 
+                  display='flex'
+                  alignItems="center"
+                  justifyContent={'end'}
+                  paddingRight={2}
+                  >
+
+                    <Box >
+
+                      <ColorButton 
+                        variant="contained"
+                        size="small"
+                        sx={{px:4, my:1}}
+                        onClick={handleValorInput}
+                        >
+                        Enviar
+                      </ColorButton>
+                    </Box>
+                          
+                </Grid>
+              </Grid>
+                
+                
+            </>
+          }
         </CardContent>
+        <Divider/>
+
+        {datos.comentarios.map((c,i)=>(
+
+          <EtiquetaComentarios 
+            key ={i} 
+            comentario={c}  
+            indexPublicacion={index} 
+            indexComentario={i}/>
+        
+        ))} 
+                
       </Collapse>
     </Card>
   );

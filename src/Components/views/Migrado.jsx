@@ -19,7 +19,7 @@ const Migrado = () => {
         <Box sx={{ justifyContent:'center'}}>
 
           {store.grados[0].publicaciones.map((publicacion, index)=>(
-            <Card key={index} datos={publicacion}/>
+            <Card key={index} datos={publicacion} index={index}/>
             
             ))}
               

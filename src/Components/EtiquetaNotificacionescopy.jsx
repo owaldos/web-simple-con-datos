@@ -8,22 +8,24 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 
-export default function EtiquetaNotificaciones2({datos,index}) {
+export default function EtiquetaNotificacionescopy({datos,index}) {
 
   const {store, actions}= useContext(Context)
 
   const handleClick= ()=>{
-    actions.setvistos(index)
+    actions.setvistosNotificacionesEscuela(index)
+    
   }
+  // store.escuela[0].notificaciones[index].visto===false? '#EFF1F1 ':'#ffff'
   return (
     <List 
-    bgcolor={store.usuario[0].notificaciones[index].visto===false? '#EFF1F1 ':'#ffff'}
-    sx={{ width: '100%', maxWidth: 900, bgcolor: 'background.paper', mx:'auto'}}
+    
+    sx={{ width: '100%', maxWidth: 900, mx:'auto', paddingY:0, backgroundColor:store.escuela[0].notificaciones[index].visto===true? '#EFF1F1 ':'#ffff'}}
     onClick={handleClick}
     >
-      <ListItemButton alignItems="flex-start">
+      <ListItemButton alignItems="flex-start" sx={{paddingY:0, }}>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src={datos.img} />
+          <Avatar alt="Remy Sharp" src={datos.avatar} />
         </ListItemAvatar>
         <ListItemText
           primary={datos.name}

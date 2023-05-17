@@ -1,13 +1,10 @@
 import React, {useContext} from 'react';
 import { Context } from '../store/appContext';
-
-
 import { Grid, Box,Container, Typography,Toolbar, AppBar, Divider} from '@mui/material';
 import logo from '../image/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import { useNavigate } from 'react-router-dom';
-import BotonIrEscuela from './BotorIrEscuela'
 import './../App.css'
 import NavegadorGrado from './NavegadorGrado'
 import MiAvatar from './MiAvatar'
@@ -46,9 +43,6 @@ function ResponsiveAppBarGrado({props,grado}) {
     <HideOnScroll {...props} >
       <Container disableGutters={true} >
         <AppBar elevation={1} >
-
-          <BotonIrEscuela/>
-          <Divider/>
 
 
           <Toolbar disableGutters={true} sx={{justifyContent:'center'}} >

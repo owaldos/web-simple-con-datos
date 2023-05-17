@@ -14,7 +14,7 @@ const ProyectosGrado = () => {
   return (
     <>
     <ResponsiveAppBarGrado  grado={store.usuario[0]}/> 
-    <SectionHeading name='Proyectos y acuardos'/>
+    <SectionHeading name='Proyectos y acuerdos'/>
    <ListaMenu array={store.proyectosGrado}/>
     <Footer/>
     </>

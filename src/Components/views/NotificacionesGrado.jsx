@@ -19,7 +19,7 @@ const NotificacionesGrado = () => {
 
      < SectionHeading name='Notificaciones' boton={true}/>
 
-     {store.usuario[0].notificaciones.map((notif, index)=>(
+     {store.escuela[0].notificaciones.map((notif, index)=>(
       
       <EtiquetaNotificacionescopy key={index} datos={notif} index={index}/>
 

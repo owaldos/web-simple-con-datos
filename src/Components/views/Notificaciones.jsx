@@ -9,13 +9,14 @@ import { Box } from '@mui/material'
 const Notificaciones = () => {
 
    const { store}= useContext( Context)
+   
   return (
     <>
     <ResponsiveAppBar/>
     <SectionHeading name='Notificaciones' boton={true}/>
     <Box sx={{padding:1 }}>
 
-      {store.usuario[0].notificaciones.map((notif, index)=>(
+      {store.escuela[0].notificaciones.map((notif, index)=>(
         
         <EtiquetaNotificacionescopy key={index} datos={notif} index={index}/>
 

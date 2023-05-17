@@ -6,13 +6,20 @@ import { Box, IconButton,
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Drawer from '@mui/material/Drawer';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const MiAvatar = ({foto}) => {
   const {store, action}= useContext(Context)
+  
   const [state, setState] = useState(false)
+  const navigate= useNavigate()
+
+  const clickItem =(text)=>{
+    navigate(`${text}`)
+  }
 
   const handleClick = (event) => {
    
@@ -39,9 +46,9 @@ const MiAvatar = ({foto}) => {
        
       >
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Ingresar','Registrarme'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={()=>clickItem(`/${text}`)}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
@@ -52,7 +59,7 @@ const MiAvatar = ({foto}) => {
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Perfil', 'configuración', 'Cerrar'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>

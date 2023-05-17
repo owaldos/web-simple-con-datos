@@ -5,8 +5,6 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
 import { Grid, IconButton,  Badge,  Tooltip} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LocalLibrary from '@mui/icons-material/LocalLibrary';
 import { NavLink} from 'react-router-dom';
 import './../App.css'
@@ -17,7 +15,7 @@ import './../App.css'
 
 function Navegador() {
     const {store} = useContext(Context)
-
+   
   
   return (
 
@@ -27,7 +25,6 @@ function Navegador() {
         <Grid 
         item
         container
-        xs={12}
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -101,7 +98,8 @@ function Navegador() {
 
                 <IconButton color='secondary'>
                 <Badge
-                badgeContent={store.escuela[0].notificaciones.filter(item=> item.visto===false).length} 
+                
+                badgeContent={store.escuela[0].notificaciones.filter(item=>item.visto===false).length} 
                 anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',

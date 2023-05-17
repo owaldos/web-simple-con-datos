@@ -29,16 +29,16 @@ const BotonIrEscuela = ({number}) => {
         xs={12} 
         display='flex'
         justifyContent="flex-start"
-        alignItems="center" 
+        alignitems="center" 
         
         >
             
             <ListItem disablePadding onClick={handleClick}>
-              <ListItemButton sx={{width:'100%', paddingY:'0', paddingLeft:3}}>
-                <ListItemIcon alignItems='center' sx={{minWidth:40}}>
-                 <ArrowBack color='primary.contrastText'  />
+              <ListItemButton sx={{width:'100%', paddingLeft:3, margin:4, background:'#C1C5CA '}}>
+                <ListItemIcon alignitems='center' sx={{minWidth:40}}>
+                 <ArrowBack color='secondary'  />
                 </ListItemIcon>
-                <ListItemText secondary={'Ir a la escuela'} />
+                <ListItemText primary={'Ir a la escuela'} />
               </ListItemButton>
             </ListItem>
                 

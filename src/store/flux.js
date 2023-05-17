@@ -7,6 +7,7 @@ import f4 from '../image/diego.png'
 import f5 from '../image/2021-07-11-212717.jpg'
 import f6 from '../image/2022-03-22-111021.jpg'
 import f7 from '../image/2022-03-22-120958.jpg'
+import v1 from '../image/y2mate.com - Escuela Sabática LIKE  Lección 7  Adoren al Creador_1080p.mp4'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -50,6 +51,87 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 fecha:'',
 					 contenido:'',
 					 visto:false
+	
+					}
+					
+				],
+				publicaciones:[
+					{
+					 ref: 'escuela',
+					 name:'Oswaldo Salas',
+					 avatar:oswaldo,
+					 img:f1,
+					 fecha:'2 febrero',
+					 contenido:'este es el contenido',
+					 visto:false,
+					 like:false,
+					 numLike:null,
+					 comentarios:[
+						{
+							usuario:'Valentina Salas',
+							valor: 'a mi si me gustan los cantos, pienso que se aprende mucho y mas rapido',
+							fecha:'10 mayo',
+							avatar:valentina,
+							respuestas:[]
+
+						},
+						{
+							usuario:'Oswaldo Salas',
+							valor: 'hola que tal estan todos, no me parece esos metodos de clase',
+							fecha:'10 mayo',
+							avatar:oswaldo,
+							respuestas:[
+								{
+									usuario:'Valentina Salas',
+									valor: 'y cuales son los metodos de clases que usted propone',
+									fecha:'10 mayo',
+									avatar:valentina,
+									
+		
+								},
+							]
+
+						}
+					 ]
+
+					},
+					{
+						ref: 'escuela',
+						name:'Valentina Salas',
+						avatar:valentina,
+						img:f2,
+						fecha:'',
+						contenido:'este es el contenido',
+						visto:false,
+						like:false,
+					     numLike:1,
+						 comentarios:[]
+   
+					},
+					{
+						ref: 'escuela',
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:f3,
+						fecha:'',
+						contenido:'este es el contenido',
+						visto:false,
+						like:false,
+					    numLike:2,
+						comentarios:[]
+   
+					},
+					{
+					 ref: 'escuela',
+					 name:'Oswaldo Salas',
+					 avatar:oswaldo,
+					 img:f1,
+					 fecha:'',
+					 contenido:'este es el contenido',
+					 visto:false,
+					 like:false,
+					 numLike:3,
+					 comentarios:[]
 	
 					}
 					
@@ -102,27 +184,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 					],
 					publicaciones:	[
 						{
+						 ref: '1er Grado',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
 						 fecha:'',
-						 contenido:''
+						 contenido:'',
+						 vistas:undefined,
+						 like:false,
+						 numLike:null,
+						 comentarios:[
+							
+						 ]
+		
 	
 						},
 						{
+							ref: '1er Grado',
 							name:'Valentina Salas',
 							avatar:valentina,
 							img:f1,
 							fecha:'',
-							contenido:''
+							contenido:'',
+							vistas:undefined,
+							like:false,
+							numLike:null,
+							comentarios:[]
+		   
 	   
 						},
 						{
+							ref: '1er Grado',
 							name:'Oswaldo Salas',
 							avatar:oswaldo,
 							img:f2,
 							fecha:'',
-							contenido:''
+							contenido:'',
+							vistas:undefined,
+							like:false,
+							numLike:null,
+							comentarios:[]
+		   
 	   
 						   },
 					],
@@ -170,27 +272,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 					],
 					publicaciones:	[
 						{
+						 ref: '4to Grado',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
 						 fecha:'',
-						 contenido:''
+						 contenido:'',
+						 vistas:undefined,
+						 like:false,
+					     numLike:null,
+						 comentarios:[]
+	
 	
 						},
 						{
+							ref: '4to Grado',
 							name:'Valentina Salas',
 							avatar:valentina,
 							img:f1,
 							fecha:'',
-							contenido:''
+							contenido:'',
+							vistas:undefined,
+							like:false,
+							numLike:null,
+							comentarios:[]
+		   
 	   
 						},
 						{
+							ref: '4to Grado',
 							name:'Oswaldo Salas',
 							avatar:oswaldo,
 							img:f2,
 							fecha:'',
-							contenido:''
+							contenido:'',
+							vistas:undefined,
+							like:false,
+							numLike:null,
+							comentarios:[]
+		   
 	   
 						   },
 					],
@@ -201,7 +321,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			usuario:[
 				{
-					name:'Valentina',
+					name:'Valentina Salas',
+					id:1,
 					img:valentina,
 					representados:['laura Fofia','Amelia'],
 					publicaciones:null,
@@ -344,14 +465,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 	
 	actions: {
 
-		setvistos:(index) => {
+		setvistosNotificacionesEscuela:(index) => {
 			const store= getStore();
 			store.escuela[0].notificaciones[index].visto=true
 			setStore( store)
+			
+		},
+		setLike:(index, dato,cuenta) => {
+			const store= getStore();
+			store.escuela[0].publicaciones[index].like= dato
+			store.escuela[0].publicaciones[index].numLike =cuenta
+			setStore( store)
+			
 		},
 		setSeleccionGrado:(grado) => {
 			const store= getStore();
 			store.usuario[0].seleccionDelUsuario.grado = grado
+			setStore( store)
+		},
+		setNewComentarioPublicacionEscuela:(valor, index)=>{
+			
+			const store= getStore();
+			store.escuela[0].publicaciones[index].comentarios.unshift(valor)
+			
+            
+		},
+		setNewComentarioPublicacionGrado:(valor, index)=>{
+			
+			const store= getStore();
+			store.grados[0].publicaciones[index].comentarios.unshift(valor)
+			setStore( store)
+
+		},
+		setNewRespuestaPublicacionEscuela:(valor, indexPublicacion, indexComentario)=>{
+			const store= getStore();
+			store.escuela[0].publicaciones[indexPublicacion].comentarios[indexComentario].respuestas.push(valor)
+			setStore( store)
+
+		},
+		borrarComentarioEscuela:(indexpublicacion,indexComentario)=>{
+			const store= getStore();
+			store.escuela[0].publicaciones[indexpublicacion].comentarios.splice(indexComentario,1)
+			setStore( store)
+		},
+		borrarRespuestaEscuela:(indexpublicacion,indexComentario,indexRespuesta)=>{
+			const store= getStore();
+			store.escuela[0].publicaciones[indexpublicacion].comentarios[indexComentario].respuestas.splice(indexRespuesta,1)
 			setStore( store)
 		},
 

@@ -5,7 +5,7 @@ import { Box} from '@mui/material';
 import Card from '../Card';
 
 import ResponsiveAppBar from '../ResponsiveAppBar';
-
+import EtiquetaComentarios from '../EtiquetaComentarios';
 
 
 
@@ -25,8 +25,11 @@ function Home() {
 
     <Box sx={{ justifyContent:'center'}}>
 
-      {store.escuela[0].notificaciones.map((publicacion, index)=>(
-        <Card key={index} datos={publicacion}/>
+      {store.escuela[0].publicaciones.map((publicacion, index)=>(
+        
+        <Card key={index} datos={publicacion} index={index}/>
+        
+         
 
       ))}
       
