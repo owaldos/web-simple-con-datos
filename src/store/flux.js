@@ -7,7 +7,6 @@ import f4 from '../image/diego.png'
 import f5 from '../image/2021-07-11-212717.jpg'
 import f6 from '../image/2022-03-22-111021.jpg'
 import f7 from '../image/2022-03-22-120958.jpg'
-import v1 from '../image/y2mate.com - Escuela Sabática LIKE  Lección 7  Adoren al Creador_1080p.mp4'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
