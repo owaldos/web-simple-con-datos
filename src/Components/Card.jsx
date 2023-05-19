@@ -23,8 +23,10 @@ import EtiquetaComentarios from './EtiquetaComentarios';
 import { blue } from '@mui/material/colors';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
-
+import ClearIcon from '@mui/icons-material/Clear';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+ 
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -47,17 +49,17 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+
 export default function RecipeReviewCard ({datos, index}) {
-  
-  
+
   const { store,actions}= useContext(Context)
-  const navigate = useNavigate()
-  
-  
   const [expanded, setExpanded] = useState(false);
   const [valorInput, setValorInput] = useState('');
   const [stateComentar, setStateComentar]= useState(false)
+  const navigate = useNavigate()
 
+  
+  
   const handleExpandClick = () => {
     setExpanded(!expanded);
     setStateComentar(false)
@@ -82,7 +84,7 @@ export default function RecipeReviewCard ({datos, index}) {
       actions.setNewComentarioPublicacionGrado({
         valor:valorInput,
         usuario:store.usuario[0].name,
-        fecha:'5 febrero',
+        fecha:1684366724055,
         avatar:store.usuario[0].img,
         respuestas:[]
       },index)
@@ -94,7 +96,7 @@ export default function RecipeReviewCard ({datos, index}) {
       actions.setNewComentarioPublicacionEscuela({
         valor:valorInput,
         usuario:store.usuario[0].name,
-        fecha:'5 febrero',
+        fecha:1684376844055,
         avatar:store.usuario[0].img,
         respuestas:[]
       },index)
@@ -109,6 +111,7 @@ export default function RecipeReviewCard ({datos, index}) {
   const handlePerfil = () => {
     navigate('/Mi Perfil')
   }
+ 
 
 
   const like=()=>{
@@ -117,9 +120,55 @@ export default function RecipeReviewCard ({datos, index}) {
     actions.setLike(index,dato,cuenta)
     
   }
+  
+ 
+  const tiempoDePublicacion=()=>{
+    // ttMinutos significa tiempo transcurrido en minutos
 
+    let inicio= datos.inicio
+    let tiempoActual= new Date().getTime()
+    let ttMinutos= (tiempoActual-inicio)/1000/60
+    let ttHoras= ttMinutos/60
+    let ttDias= ttHoras/24
+   
+    
+   
+    if(ttMinutos<60){
+      
+        if(ttMinutos>=0 && ttMinutos<1){
+          return 'Justo ahora'
+        } else if(ttMinutos>=1 && ttMinutos<2){
+          return '1 minuto'
+        } else return ` ${Math.trunc(ttMinutos)} minutos`
+
+
+    }else if(ttHoras>=1 && ttHoras<24){
+      
+        if(ttHoras>=1 && ttHoras<2){
+          return  '1 hora'
+        } else {
+
+          
+          return`${Math.trunc(ttHoras)} horas`;
+        }
+        
+    } else if(ttDias>=1 && ttDias<29){
+     
+        if(ttDias>=1 && ttDias<2){
+          
+          return  '1 dia'
+        } else return`${Math.trunc(ttDias)} dias`
+    
+    }else return datos.fecha
+  }  
   
-  
+
+
+  const borrarPublicacionEscuela=()=>{
+    actions.borrarPublicacionEscuela(index)
+  }
+
+ 
   
 
   return (
@@ -131,13 +180,20 @@ export default function RecipeReviewCard ({datos, index}) {
           </Avatar>
         }
         action={
+          
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            {datos.name===store.usuario[0].name
+              ?
+               <ClearIcon onClick={borrarPublicacionEscuela}/>
+              :
+              null
+            }
           </IconButton>
+        
         }
         
         title={datos.name}
-        subheader="September 14, 2016"
+        subheader={tiempoDePublicacion()}
       />
 
      
@@ -359,4 +415,4 @@ export default function RecipeReviewCard ({datos, index}) {
       </Collapse>
     </Card>
   );
-}
+};

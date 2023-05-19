@@ -88,6 +88,44 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
   // }
 
 
+  const tiempoDePublicacion=(datosdelComentario)=>{
+    
+    // ttMinutos significa tiempo transcurrido en minutos
+
+    let inicio= datosdelComentario.inicio
+    let tiempoActual= new Date().getTime()
+    let ttMinutos= (tiempoActual-inicio)/1000/60
+    let ttHoras= ttMinutos/60
+    let ttDias= ttHoras/24
+    
+    
+    if(ttMinutos<60){
+     
+      if(ttMinutos>=0 && ttMinutos<1){
+        return 'Justo ahora'
+      } else if(ttMinutos>=1 && ttMinutos<2){
+        return '1 minuto'
+      } else return ` ${Math.trunc(ttMinutos)} minutos`
+
+
+    }else if(ttHoras>=1 && ttHoras<24){
+      
+      if(ttHoras>=1 && ttHoras<2){
+        return  '1 hora'
+      } else return`${Math.trunc(ttHoras)} horas`;
+      
+        
+    } else if(ttDias>=1 && ttDias<29){
+      if(ttDias>=1 && ttDias<2){ 
+        return  '1 dia'
+      } else return`${Math.trunc(ttDias)} dias`
+    
+    }else return datosdelComentario.fecha
+
+
+  }  
+
+
 
 
   
@@ -125,7 +163,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
                       variant="caption"
                       color="text.primary"
                     >
-                      {comentario.fecha }
+                      {tiempoDePublicacion(comentario) }
                     </Typography>
 
                 </Box>
@@ -293,7 +331,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
                               variant="caption"
                               color="text.primary"
                             >
-                              {r.fecha }
+                              {tiempoDePublicacion(r.fecha) }
                             </Typography>
 
                         </Box>

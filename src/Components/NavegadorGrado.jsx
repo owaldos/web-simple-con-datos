@@ -9,7 +9,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { NavLink, Link } from 'react-router-dom';
 import './../App.css'
 import ArrowCircleLeftRoundedIcon from '@mui/icons-material/ArrowCircleLeftRounded';
-
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
 function NavegadorGrado({grado}) {
     const {store} = useContext(Context)
@@ -40,7 +40,7 @@ function NavegadorGrado({grado}) {
                     
                     <Tooltip title="Regresar">
                         <IconButton  color='secondary' >
-                            <ArrowCircleLeftRoundedIcon />
+                            <ReplyAllIcon  />
                         </IconButton>
                     </Tooltip>
                 </Link>

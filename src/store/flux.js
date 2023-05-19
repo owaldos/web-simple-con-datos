@@ -20,7 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
 					 img:f1,
-					 fecha:'',
+					 inicio:684366844055,
+					 fecha:'1/1/2023',
 					 contenido:'',
 					 visto:false
 
@@ -29,7 +30,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Valentina Salas',
 						avatar:valentina,
 						img:f2,
-						fecha:'',
+						inicio:684366844055,
+						fecha:'1/1/2023',
 						contenido:'',
 						visto:false
    
@@ -38,7 +40,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
 						img:f3,
-						fecha:'',
+						inicio:684366844055,
+						fecha:'1/1/2023',
 						contenido:'',
 						visto:false
    
@@ -47,7 +50,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
 					 img:f1,
-					 fecha:'',
+					 inicio:684366844055,
+					 fecha:'1/1/2023',
 					 contenido:'',
 					 visto:false
 	
@@ -60,7 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
 					 img:f1,
-					 fecha:'2 febrero',
+					 inicio:'168449395490',
+					 fecha:'12/1/2023',
 					 contenido:'este es el contenido',
 					 visto:false,
 					 like:false,
@@ -69,7 +74,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						{
 							usuario:'Valentina Salas',
 							valor: 'a mi si me gustan los cantos, pienso que se aprende mucho y mas rapido',
-							fecha:'10 mayo',
+							inicio:'1684442065905',
+							fechas:'12/1/2023',
 							avatar:valentina,
 							respuestas:[]
 
@@ -77,13 +83,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						{
 							usuario:'Oswaldo Salas',
 							valor: 'hola que tal estan todos, no me parece esos metodos de clase',
-							fecha:'10 mayo',
+							inicio:'1684366844055',
+							fecha:'12/1/2023',
 							avatar:oswaldo,
 							respuestas:[
 								{
 									usuario:'Valentina Salas',
 									valor: 'y cuales son los metodos de clases que usted propone',
-									fecha:'10 mayo',
+									inicio:'1684442065905',
+									fecha:'12/1/2023',
 									avatar:valentina,
 									
 		
@@ -99,7 +107,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Valentina Salas',
 						avatar:valentina,
 						img:f2,
-						fecha:'',
+						inicio:1684366844055,
+						fecha:'12/1/2023',
 						contenido:'este es el contenido',
 						visto:false,
 						like:false,
@@ -112,7 +121,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
 						img:f3,
-						fecha:'',
+						inicio:1684366844055,
+						fecha:'12/1/2023',
 						contenido:'este es el contenido',
 						visto:false,
 						like:false,
@@ -125,7 +135,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
 					 img:f1,
-					 fecha:'',
+					 inicio:1684366844055,
+					 fecha:'12/1/2023',
 					 contenido:'este es el contenido',
 					 visto:false,
 					 like:false,
@@ -187,6 +198,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
+						 inicio:'',
 						 fecha:'',
 						 contenido:'',
 						 vistas:undefined,
@@ -203,6 +215,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							name:'Valentina Salas',
 							avatar:valentina,
 							img:f1,
+							inicio:'',
 							fecha:'',
 							contenido:'',
 							vistas:undefined,
@@ -217,6 +230,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							name:'Oswaldo Salas',
 							avatar:oswaldo,
 							img:f2,
+							inicio:'',
 							fecha:'',
 							contenido:'',
 							vistas:undefined,
@@ -275,6 +289,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
+						 inicio:'',
 						 fecha:'',
 						 contenido:'',
 						 vistas:undefined,
@@ -289,6 +304,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							name:'Valentina Salas',
 							avatar:valentina,
 							img:f1,
+							inicio:'',
 							fecha:'',
 							contenido:'',
 							vistas:undefined,
@@ -303,6 +319,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							name:'Oswaldo Salas',
 							avatar:oswaldo,
 							img:f2,
+							inicio:'',
 							fecha:'',
 							contenido:'',
 							vistas:undefined,
@@ -328,8 +345,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					grados:['1er Grado','2do Grado','3do Grado','4to Grado', '5to Grado','6to Grado'],
 					seleccionDelUsuario:{
 						grado:undefined,
-
-					    },
+                    },
 					notificaciones:[
 						{
 							img:oswaldo,
@@ -463,6 +479,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 	
 	actions: {
+		fecha:(segundos)=>{
+			const store= getStore();
+			store.escuela[0].fecha=segundos
+			setStore( store)
+
+		},
 
 		setvistosNotificacionesEscuela:(index) => {
 			const store= getStore();
@@ -499,6 +521,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		setNewRespuestaPublicacionEscuela:(valor, indexPublicacion, indexComentario)=>{
 			const store= getStore();
 			store.escuela[0].publicaciones[indexPublicacion].comentarios[indexComentario].respuestas.push(valor)
+			setStore( store)
+
+		},
+		borrarPublicacionEscuela:(index)=>{
+			const store= getStore();
+			store.escuela[0].publicaciones.splice(index,1)
 			setStore( store)
 
 		},

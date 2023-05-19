@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Box, ListItem,ListItemButton, ListItemText, ListItemIcon} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
-import { ArrowBack } from '@mui/icons-material';
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
 
 
@@ -36,9 +36,10 @@ const BotonIrEscuela = ({number}) => {
             <ListItem disablePadding onClick={handleClick}>
               <ListItemButton sx={{width:'100%', paddingLeft:3, margin:4, background:'#C1C5CA '}}>
                 <ListItemIcon alignitems='center' sx={{minWidth:40}}>
-                 <ArrowBack color='secondary'  />
+                 <ReplyAllIcon  color='primary.contrastText'  />
                 </ListItemIcon>
                 <ListItemText primary={'Ir a la escuela'} />
+        
               </ListItemButton>
             </ListItem>
                 
