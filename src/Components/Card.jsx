@@ -1,4 +1,4 @@
-import  React,{ useContext, useState} from 'react';
+import  React,{ useContext, useState, useRef,useEffect} from 'react';
 import {Context} from '../store/appContext'
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -26,7 +26,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ClearIcon from '@mui/icons-material/Clear';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
- 
+import '../App.css'
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -56,8 +56,45 @@ export default function RecipeReviewCard ({datos, index}) {
   const [expanded, setExpanded] = useState(false);
   const [valorInput, setValorInput] = useState('');
   const [stateComentar, setStateComentar]= useState(false)
+ 
   const navigate = useNavigate()
+  const marcoVideo = useRef(null)
+  const card= useRef(null)
 
+
+  const callbackFunction=(entries)=>{
+    
+    if (entries[0].isIntersecting===true){
+     
+        if(marcoVideo.current )marcoVideo.current.play()
+         
+    } else if(entries[0].isIntersecting===false){
+      if(marcoVideo.current) marcoVideo.current.pause() 
+      
+    }
+  }
+
+  
+  
+ 
+
+  useEffect(() => {
+    
+    const observer = new IntersectionObserver(callbackFunction,{
+      root:null,
+      rootMargin:'0px',
+      threshold:0.9,
+    } )
+    if (card.current) observer.observe(card.current)
+  
+  
+    return () => {
+
+      if (card.current) observer.unobserve(card.current);
+  
+    }
+  }, [ card])
+  
   
   
   const handleExpandClick = () => {
@@ -84,7 +121,8 @@ export default function RecipeReviewCard ({datos, index}) {
       actions.setNewComentarioPublicacionGrado({
         valor:valorInput,
         usuario:store.usuario[0].name,
-        fecha:1684366724055,
+        fecha:new Date().getTime(),
+        inicio:1684376844055,
         avatar:store.usuario[0].img,
         respuestas:[]
       },index)
@@ -96,7 +134,8 @@ export default function RecipeReviewCard ({datos, index}) {
       actions.setNewComentarioPublicacionEscuela({
         valor:valorInput,
         usuario:store.usuario[0].name,
-        fecha:1684376844055,
+        inicio:new Date().getTime(),
+        fecha:'21 may',
         avatar:store.usuario[0].img,
         respuestas:[]
       },index)
@@ -172,7 +211,8 @@ export default function RecipeReviewCard ({datos, index}) {
   
 
   return (
-    <Card sx={{ maxWidth: 720, marginX:'auto', marginY: 1}}>
+    <Card  ref={card} sx={{ maxWidth: 720, marginX:'auto', marginY: 1}} >
+   
       <CardHeader
         avatar={
           <Avatar onClick={handlePerfil} sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -196,16 +236,20 @@ export default function RecipeReviewCard ({datos, index}) {
         subheader={tiempoDePublicacion()}
       />
 
-     
+     {datos.tipo==='img'
+        ?
 
-      <CardMedia
-        component="img" 
-        image={datos.img}
-        alt="imagen de la  publicacion"
-      />
-     
+        <CardMedia
+          component="img" 
+          image={datos.img}
+          alt="imagen de la  publicacion"
+        />
+        : <video ref={marcoVideo} src={datos.img}  loop controls /> 
+     }
 
-      <CardContent>
+    
+   
+      <CardContent sx={{paddingY:0}}>
         <Typography variant="body2" color="text.secondary">
           {datos.contenido}
         </Typography>

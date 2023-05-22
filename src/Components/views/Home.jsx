@@ -8,13 +8,17 @@ import ResponsiveAppBar from '../ResponsiveAppBar';
 import EtiquetaComentarios from '../EtiquetaComentarios';
 
 
+ 
+
+
+
 
 function Home() {
   const {store}= useContext(Context)
   
   return (
     <>
-    <Box   sx={{ justifyContent:'center'}}>
+    <Box   sx={{ justifyContent:'center'}}  >
       
       <header className="App-header">
         <ResponsiveAppBar /> 

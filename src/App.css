@@ -4,3 +4,8 @@
     border-bottom: 2px solid blue;
     padding-bottom: 5px;
 }
+
+video{
+    width:100%;
+    object-fit:contain;
+}

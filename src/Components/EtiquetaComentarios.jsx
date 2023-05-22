@@ -78,6 +78,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
         valor:valorInput,
         usuario:store.usuario[0].name,
         fecha:'6 febrero',
+        inicio:new Date().getTime(),
         avatar:store.usuario[0].img,
         respuestas:[]
       },indexPublicacion,indexComentario)
@@ -331,7 +332,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
                               variant="caption"
                               color="text.primary"
                             >
-                              {tiempoDePublicacion(r.fecha) }
+                              {tiempoDePublicacion(r) }
                             </Typography>
 
                         </Box>

@@ -4,6 +4,8 @@ import ResponsiveAppBarGrado from '../ResponsiveAppBarGrado'
 import Footer from '../Footer'
 import SectionHeading from '../SectionHeading'
 import EtiquetaPerfil from '../EtiquetaPerfil'
+import { Box } from '@mui/material'
+import '../../App.css'
 
 const Estudiantes = () => {
   const {store}= useContext(Context)
@@ -20,7 +22,10 @@ const Estudiantes = () => {
       <EtiquetaPerfil key={index} perfil={perfil} index={index}/>
 
     ))}
+      <Box >
 
+      <video src={store.escuela[0].video} autoPlay loop  /> 
+      </Box>
 
     <Footer/>
     </>

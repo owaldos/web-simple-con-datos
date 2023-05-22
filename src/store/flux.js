@@ -7,11 +7,16 @@ import f4 from '../image/diego.png'
 import f5 from '../image/2021-07-11-212717.jpg'
 import f6 from '../image/2022-03-22-111021.jpg'
 import f7 from '../image/2022-03-22-120958.jpg'
+import v from '../image/y2mate.com - Escuela Sabática LIKE  Lección 7  Adoren al Creador_1080p.mp4'
+import v1 from '../image/y2mate.com - Intro escolar_480p.mp4'
+import v2 from '../image/y2mate.com - JESÚS EN MI CIUDAD 20_360p.mp4'
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			escuela: [
 				{ 
+			    
 				 name:'U.E Guarenas',
 				 Codigo:'OD04241907',
 				 turno:'Bolivariano',
@@ -60,22 +65,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				],
 				publicaciones:[
 					{
+					 tipo:'video',
 					 ref: 'escuela',
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
-					 img:f1,
+					 img:v,
 					 inicio:'168449395490',
 					 fecha:'12/1/2023',
-					 contenido:'este es el contenido',
+					 contenido:'aquí les dejo un video bien entretenido y educativo 100%, dala un vistazo y comenta que te parece ',
 					 visto:false,
 					 like:false,
 					 numLike:null,
 					 comentarios:[
 						{
 							usuario:'Valentina Salas',
-							valor: 'a mi si me gustan los cantos, pienso que se aprende mucho y mas rapido',
-							inicio:'1684442065905',
-							fechas:'12/1/2023',
+							valor: 'me gustan mucho ese tipo de videos, tanto para los niños como para nosotros los adultos',
+							inicio:'1684366844055',
+							fecha:'12/1/2023',
 							avatar:valentina,
 							respuestas:[]
 
@@ -89,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							respuestas:[
 								{
 									usuario:'Valentina Salas',
-									valor: 'y cuales son los metodos de clases que usted propone',
+									valor: 'y cuales son los metodos de clases que usted propone?',
 									inicio:'1684442065905',
 									fecha:'12/1/2023',
 									avatar:valentina,
@@ -104,12 +110,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					{
 						ref: 'escuela',
+						tipo:'video',
 						name:'Valentina Salas',
 						avatar:valentina,
-						img:f2,
+						img:v1,
 						inicio:1684366844055,
 						fecha:'12/1/2023',
-						contenido:'este es el contenido',
+						contenido:'la alegria de tener los nuevos útiles escolares',
 						visto:false,
 						like:false,
 					     numLike:1,
@@ -117,7 +124,25 @@ const getState = ({ getStore, getActions, setStore }) => {
    
 					},
 					{
+						tipo:'video',
 						ref: 'escuela',
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:v2,
+						inicio:'168449395490',
+						fecha:'12/1/2023',
+						contenido:'queremos ayudarte a grabar, animate y sube tu demo',
+						visto:false,
+						like:false,
+						numLike:null,
+						comentarios:[]
+						  
+						
+   
+					   },
+					{
+						ref: 'escuela',
+						tipo:'img',
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
 						img:f3,
@@ -132,6 +157,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					{
 					 ref: 'escuela',
+					 tipo:'img',
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
 					 img:f1,
@@ -143,7 +169,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 numLike:3,
 					 comentarios:[]
 	
-					}
+					},
+					{
+						ref: 'escuela',
+						tipo:'video',
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:v1,
+						inicio:1684366844055,
+						fecha:'12/1/2023',
+						contenido:'este es el contenido',
+						visto:false,
+						like:false,
+						numLike:3,
+						comentarios:[]
+	   
+					   },
 					
 				]
 				}
@@ -195,6 +236,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					publicaciones:	[
 						{
 						 ref: '1er Grado',
+						 tipo:'img',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
@@ -212,6 +254,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						{
 							ref: '1er Grado',
+							tipo:'img',
 							name:'Valentina Salas',
 							avatar:valentina,
 							img:f1,
@@ -227,6 +270,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 						{
 							ref: '1er Grado',
+							tipo:'img',
 							name:'Oswaldo Salas',
 							avatar:oswaldo,
 							img:f2,
@@ -520,7 +564,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		setNewRespuestaPublicacionEscuela:(valor, indexPublicacion, indexComentario)=>{
 			const store= getStore();
-			store.escuela[0].publicaciones[indexPublicacion].comentarios[indexComentario].respuestas.push(valor)
+			store.escuela[0].publicaciones[indexPublicacion].comentarios[indexComentario].respuestas.unshift(valor)
 			setStore( store)
 
 		},
