@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Context } from '../store/appContext';
 import { Grid, Box,Container, Typography,Toolbar, AppBar, Divider} from '@mui/material';
-import logo from '../image/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
+import logo from '../images/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import { useNavigate } from 'react-router-dom';
@@ -28,11 +28,13 @@ function HideOnScroll(props) {
 
 
 
-function ResponsiveAppBarGrado({props,grado}) {
+function ResponsiveAppBarGrado({props,gradoIndex}) {
  
  const {store }=useContext(Context);
  const navigate= useNavigate()
-
+ 
+ const grado= store.grados[gradoIndex]
+ 
  const handleClick= ()=>{
   navigate(`/selecGrado`)
  }
@@ -74,7 +76,7 @@ function ResponsiveAppBarGrado({props,grado}) {
                       sx={{mx: 1,}}
                       onClick={handleClick}
                     >
-                           {grado.seleccionDelUsuario.grado}
+                        {grado.name}
                     </Typography>
                   
                   
@@ -89,14 +91,14 @@ function ResponsiveAppBarGrado({props,grado}) {
                   alignItems="center" 
                   paddingRight={2}
                 >  
-                  <MiAvatar  foto={grado.img} />
+                  <MiAvatar  foto={store.usuario[0].img} />
                 </Grid>
 
 
               </Grid>
                    
                  
-              <NavegadorGrado grado={grado}/> 
+              <NavegadorGrado  grado={grado}/> 
             </Grid>
           </Toolbar>
        

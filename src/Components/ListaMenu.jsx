@@ -5,6 +5,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import "../App.css"
 
 const ListaMenu = ({array, call}) => {
 
@@ -15,7 +16,7 @@ const ListaMenu = ({array, call}) => {
    
   }
   return (
-    <Grid container p={2}>
+    <Grid className='aparecer'container p={2}>
           <Grid container item  rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} justifyContent='start'>
             
             
@@ -24,7 +25,7 @@ const ListaMenu = ({array, call}) => {
                   <Grid key={i} container item sm={4} xs={6} >
                     <ListItemButton  
                     sx={{ border:'1px solid #cfd8dc', borderRadius: '7px', background:'#ffff',display:'block' }}
-                    onClick={()=>handleClick(i)}
+                    onClick={()=>handleClick(index)}
                     >
                       <Grid item xs={12}> 
                         <ListItemIcon>

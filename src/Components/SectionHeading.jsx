@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { blue } from '@mui/material/colors'
 import { styled } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-
+import "../App.css"
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -24,7 +24,7 @@ const SectionHeading = ({number, name,boton}) => {
     navigate('/Mi Perfil')
   }
   return (
-    <Paper elevation={0} sx={{ my:0}}>
+    <Paper className='aparecer' elevation={0} sx={{ my:0}}>
 
     <Grid 
       container

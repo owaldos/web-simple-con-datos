@@ -14,7 +14,7 @@ const MenuGrado = () => {
   
   return (
     <>
-      <ResponsiveAppBarGrado  grado={store.usuario[0]}/> 
+      <ResponsiveAppBarGrado  gradoIndex={store.usuario[0].seleccionDelUsuario.grado}/> 
       <SectionHeading name='Menú'/>
       <ListaMenu array={store.menuGrado} />
       <Footer/>

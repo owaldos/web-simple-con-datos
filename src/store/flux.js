@@ -1,16 +1,19 @@
-import valentina from '../image/valentina.jpeg'
-import oswaldo from '../image/119976556_121520916358929_6799021330331753240_n.jpg'
-import f1 from '../image/2.jpeg'
-import f2 from '../image/3.jpeg'
-import f3 from '../image/Captura de pantalla de 2022-03-08 10-24-30.png'
-import f4 from '../image/diego.png'
-import f5 from '../image/2021-07-11-212717.jpg'
-import f6 from '../image/2022-03-22-111021.jpg'
-import f7 from '../image/2022-03-22-120958.jpg'
-import v from '../image/y2mate.com - Escuela Sabática LIKE  Lección 7  Adoren al Creador_1080p.mp4'
-import v1 from '../image/y2mate.com - Intro escolar_480p.mp4'
-import v2 from '../image/y2mate.com - JESÚS EN MI CIUDAD 20_360p.mp4'
-
+import valentina from '../images/valentina.jpeg'
+import oswaldo from '../images/119976556_121520916358929_6799021330331753240_n.jpg'
+import f1 from '../images/2.jpeg'
+import f2 from '../images/3.jpeg'
+import f3 from '../images/Captura de pantalla de 2022-03-08 10-24-30.png'
+import f4 from '../images/diego.png'
+import f5 from '../images/2021-07-11-212717.jpg'
+import f6 from '../images/2022-03-22-111021.jpg'
+import f7 from '../images/2022-03-22-120958.jpg'
+import v from '../images/compress3.mp4'
+import f8 from '../images/Foto de Oswaldo (1).jpg'
+import v2 from '../images/y2mate.com - DISCURSO DIRECTOR PARA BIENVENIDA INICIO DE CLASES 2021_v240P.mp4'
+import e1 from '../images/1685557836179.jpg'
+import e2 from '../images/1685557836200.jpg'
+import e4 from '../images/compres42.mp4'
+import e5 from '../images/compress43.mp4'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -20,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				 name:'U.E Guarenas',
 				 Codigo:'OD04241907',
 				 turno:'Bolivariano',
+				 isReadyForInstall:false,
                  notificaciones:[
 					{
 					 name:'Oswaldo Salas',
@@ -69,9 +73,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 ref: 'escuela',
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
-					 img:v,
+					 img:v2,
 					 inicio:'168449395490',
-					 fecha:'12/1/2023',
+					 fecha:'12/1/2027',
 					 contenido:'aquí les dejo un video bien entretenido y educativo 100%, dala un vistazo y comenta que te parece ',
 					 visto:false,
 					 like:false,
@@ -110,10 +114,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					{
 						ref: 'escuela',
-						tipo:'video',
+						tipo:'img',
 						name:'Valentina Salas',
 						avatar:valentina,
-						img:v1,
+						img:f2,
 						inicio:1684366844055,
 						fecha:'12/1/2023',
 						contenido:'la alegria de tener los nuevos útiles escolares',
@@ -128,7 +132,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						ref: 'escuela',
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
-						img:v2,
+						img:v,
 						inicio:'168449395490',
 						fecha:'12/1/2023',
 						contenido:'queremos ayudarte a grabar, animate y sube tu demo',
@@ -160,7 +164,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 tipo:'img',
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
-					 img:f1,
+					 img:f8,
 					 inicio:1684366844055,
 					 fecha:'12/1/2023',
 					 contenido:'este es el contenido',
@@ -172,10 +176,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					{
 						ref: 'escuela',
-						tipo:'video',
+						tipo:'img',
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
-						img:v1,
+						img:f1,
 						inicio:1684366844055,
 						fecha:'12/1/2023',
 						contenido:'este es el contenido',
@@ -239,7 +243,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						 tipo:'img',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
-						 img:f3,
+						 img:e1,
 						 inicio:'',
 						 fecha:'',
 						 contenido:'',
@@ -257,7 +261,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							tipo:'img',
 							name:'Valentina Salas',
 							avatar:valentina,
-							img:f1,
+							img:e2,
 							inicio:'',
 							fecha:'',
 							contenido:'',
@@ -330,6 +334,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					publicaciones:	[
 						{
 						 ref: '4to Grado',
+						 tipo:'img',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
 						 img:f3,
@@ -346,8 +351,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						{
 							ref: '4to Grado',
 							name:'Valentina Salas',
+							tipo:'video',
 							avatar:valentina,
-							img:f1,
+							img:e4,
 							inicio:'',
 							fecha:'',
 							contenido:'',
@@ -361,8 +367,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						{
 							ref: '4to Grado',
 							name:'Oswaldo Salas',
+							tipo:'video',
 							avatar:oswaldo,
-							img:f2,
+							img:e5,
 							inicio:'',
 							fecha:'',
 							contenido:'',
@@ -386,9 +393,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					img:valentina,
 					representados:['laura Fofia','Amelia'],
 					publicaciones:null,
-					grados:['1er Grado','2do Grado','3do Grado','4to Grado', '5to Grado','6to Grado'],
+					grados:['1er Grado','4to Grado'],
 					seleccionDelUsuario:{
-						grado:undefined,
+						grado:0,
                     },
 					notificaciones:[
 						{
@@ -448,37 +455,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			perfilDocente:[
 				{
 				img:oswaldo,
-				name:'Oswaldo',
+				name:'Oswaldo Salas',
 				cargo:'Deporte',
 				fecha: '1 min'
 			},
 			{
 				img:f4,
-				name:'Diego',
+				name:'Diego Ardila',
 				cargo:'Supervisor',
 				fecha: '2 hrs'
 			},
 			{
 				img:valentina,
-				name:'Valentina',
+				name:'Valentina Salas',
 				cargo:'Directora',
 				fecha: '2 Dias'
 			},
 			{
 				img:oswaldo,
-				name:'Oswaldo',
+				name:'Oswaldo Amundarain',
 				cargo:'Deporte',
 				fecha: '1 min'
 			},
 			{
 				img:'',
-				name:'Rosa',
+				name:'Rosa Margarita Amundarain',
 				cargo:'Docente Aula',
 				fecha: '2 hrs'
 			},
 			{
 				img:valentina,
-				name:'Valentina',
+				name:'Valentina Roseswel Salas',
 				cargo:'Directora',
 				fecha: '2 Dias'
 			}],

@@ -19,7 +19,7 @@ export default function EquipoTrabajo() {
      <SectionHeading  boton={true} name='Personal' number={store.perfilDocente.length}/>
 
       {store.perfilDocente.map((perfil, index)=>(
-        <EtiquetaPerfil key={index} perfil={perfil} index={index}/>
+        <EtiquetaPerfil  key={index} perfil={perfil} index={index}/>
 
       ))}
       

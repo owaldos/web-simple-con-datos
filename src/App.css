@@ -9,3 +9,15 @@ video{
     width:100%;
     object-fit:contain;
 }
+
+.aparecer{
+    animation-name: aparecer;
+    animation-duration: 1s;
+}
+
+
+@keyframes aparecer{
+    0%{opacity: 0;  }
+    100%{opacity: 1; }
+}
+

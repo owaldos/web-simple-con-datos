@@ -15,18 +15,14 @@ const Estudiantes = () => {
   
   return (
     <>
-    <ResponsiveAppBarGrado  grado={store.usuario[0]}/> 
+    <ResponsiveAppBarGrado gradoIndex={store.usuario[0].seleccionDelUsuario.grado}/> 
     <SectionHeading  boton={true} name='Estudiantes' number={store.perfilDocente.length}/>
 
     {store.perfilEstudiante.map((perfil, index)=>(
       <EtiquetaPerfil key={index} perfil={perfil} index={index}/>
 
     ))}
-      <Box >
-
-      <video src={store.escuela[0].video} autoPlay loop  /> 
-      </Box>
-
+     
     <Footer/>
     </>
   )

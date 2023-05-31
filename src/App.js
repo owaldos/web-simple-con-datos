@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import injectContext from './store/appContext';
 import Home from './Components/views/Home'
 import EquipoTrabajo from './Components/views/EquipoTrabajo';
@@ -16,6 +16,7 @@ import ProyectosGrado from './Components/views/ProyectosGrado';
 import NotificacionesGrado from './Components/views/NotificacionesGrado';
 import MenuGrado from './Components/views/MenuGrado';
 import Migrado from './Components/views/Migrado';
+import MiPerfil from './Components/views/MiPerfil';
 
 
 const theme= createTheme({
@@ -73,8 +74,8 @@ const router = createBrowserRouter([
   element:<SignUp/>
 },
 {
-  path: '/Mi Perfil',
-  element:<Error/>
+  path: '/Mi Perfil/:indexPersonal',
+  element:<MiPerfil/>
 },
 
 // estos son los path del grado
@@ -83,7 +84,7 @@ const router = createBrowserRouter([
   element: <SelecGrado/>
 },
 {
-  path: '/miGrado/:grado',
+  path: '/miGrado/:gradoIndex',
   element: <Migrado/>
 },
 
@@ -109,6 +110,40 @@ const router = createBrowserRouter([
 
 function App() {
 
+
+const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
+
+useEffect(() => {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    // Prevent the mini-infobar from appearing on mobile.
+    event.preventDefault();
+    console.log("👍", "beforeinstallprompt", event);
+    // Stash the event so it can be triggered later.
+    window.deferredPrompt = event;
+    // Remove the 'hidden' class from the install button container.
+    setIsReadyForInstall(true);
+  });
+}, []);
+
+async function downloadApp() {
+  console.log("👍", "butInstall-clicked");
+  const promptEvent = window.deferredPrompt;
+  if (!promptEvent) {
+    // The deferred prompt isn't available.
+    console.log("oops, no prompt event guardado en window");
+    return;
+  }
+  // Show the install prompt.
+  promptEvent.prompt();
+  // Log the result
+  const result = await promptEvent.userChoice;
+  console.log("👍", "userChoice", result);
+  // Reset the deferred prompt variable, since
+  // prompt() can only be called once.
+  window.deferredPrompt = null;
+  // Hide the install button.
+  setIsReadyForInstall(false);
+}
  
   return (
     <ThemeProvider theme={theme}>

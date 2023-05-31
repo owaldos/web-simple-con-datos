@@ -7,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import "../App.css"
 
 export default function EtiquetaNotificacionescopy({datos,index}) {
 
@@ -19,7 +20,7 @@ export default function EtiquetaNotificacionescopy({datos,index}) {
   // store.escuela[0].notificaciones[index].visto===false? '#EFF1F1 ':'#ffff'
   return (
     <List 
-    
+    className='aparecer'
     sx={{ width: '100%', maxWidth: 900, mx:'auto', paddingY:0, backgroundColor:store.escuela[0].notificaciones[index].visto===true? '#EFF1F1 ':'#ffff'}}
     onClick={handleClick}
     >

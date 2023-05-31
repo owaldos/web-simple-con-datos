@@ -3,10 +3,10 @@ import { Context } from '../store/appContext';
 
 
 import { Grid, Box,Container, Typography,Toolbar, AppBar, Divider} from '@mui/material';
-import logo from '../image/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
+import logo from '../images/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './../App.css'
 import Navegador from './Navegador'

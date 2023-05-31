@@ -60,7 +60,7 @@ export default function RecipeReviewCard ({datos, index}) {
   const navigate = useNavigate()
   const marcoVideo = useRef(null)
   const card= useRef(null)
-
+ 
 
   const callbackFunction=(entries)=>{
     
@@ -211,7 +211,7 @@ export default function RecipeReviewCard ({datos, index}) {
   
 
   return (
-    <Card  ref={card} sx={{ maxWidth: 720, marginX:'auto', marginY: 1}} >
+    <Card  className='aparecer' ref={card} sx={{ maxWidth: 720, marginX:'auto', marginY: 1}} >
    
       <CardHeader
         avatar={
@@ -235,19 +235,26 @@ export default function RecipeReviewCard ({datos, index}) {
         title={datos.name}
         subheader={tiempoDePublicacion()}
       />
+      <Divider/>
 
-     {datos.tipo==='img'
-        ?
+      {datos.tipo==='img'
+        ? 
 
         <CardMedia
-          component="img" 
-          image={datos.img}
+          component='img' 
+          // image={datos.img}
           alt="imagen de la  publicacion"
+          src={datos.img}
+          
+           sx={{maxHeight:450, objectFit:'contain'}}
+          
         />
-        : <video ref={marcoVideo} src={datos.img}  loop controls /> 
-     }
+         : <video ref={marcoVideo} src={datos.img}  loop controls  style={{ maxHeight:400}}/> 
+          
+     } 
 
-    
+     <Divider/>
+
    
       <CardContent sx={{paddingY:0}}>
         <Typography variant="body2" color="text.secondary">
@@ -393,7 +400,7 @@ export default function RecipeReviewCard ({datos, index}) {
         <CardContent sx={{py:0}}>
           {stateComentar===true&&
             <>
-              <TextField 
+              <TextField className="aparecer "
                 id="inputComenta" 
                 label="Comenta" 
                 variant="outlined"

@@ -1,4 +1,4 @@
-import React,{ useState, useContext} from 'react'
+import React,{ useState, useContext, useEffect} from 'react'
 import { Context } from '../store/appContext';
 import { Box, IconButton,
   Avatar,List, ListItem, ListItemButton,
@@ -12,10 +12,48 @@ import { useNavigate } from 'react-router-dom';
 
 
 const MiAvatar = ({foto}) => {
-  const {store, action}= useContext(Context)
+  const {store, actions}= useContext(Context)
   
   const [state, setState] = useState(false)
   const navigate= useNavigate()
+
+  const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
+
+useEffect(() => {
+  window.addEventListener("beforeinstallprompt", (event) => {
+    // Prevent the mini-infobar from appearing on mobile.
+    event.preventDefault();
+    console.log("👍", "beforeinstallprompt", event);
+    // Stash the event so it can be triggered later.
+    window.deferredPrompt = event;
+    // Remove the 'hidden' class from the install button container.
+    setIsReadyForInstall(true);
+  });
+}, []);
+
+async function downloadApp() {
+  console.log("👍", "butInstall-clicked");
+  const promptEvent = window.deferredPrompt;
+  if (!promptEvent) {
+    // The deferred prompt isn't available.
+    console.log("oops, no prompt event guardado en window");
+    return;
+  }
+  // Show the install prompt.
+  promptEvent.prompt();
+  // Log the result
+  const result = await promptEvent.userChoice;
+  console.log("👍", "userChoice", result);
+  // Reset the deferred prompt variable, since
+  // prompt() can only be called once.
+  window.deferredPrompt = null;
+  // Hide the install button.
+  setIsReadyForInstall(false);
+}
+ 
+ 
+
+  
 
   const clickItem =(text)=>{
     navigate(`${text}`)
@@ -58,6 +96,17 @@ const MiAvatar = ({foto}) => {
           ))}
         </List>
         <Divider />
+       {isReadyForInstall===true &&
+        <ListItemButton onClick={downloadApp}>
+        <ListItemIcon>
+           <MailIcon />
+        </ListItemIcon>
+        <ListItemText primary={'instalar App'} />
+      </ListItemButton>
+
+       }
+      
+     
         <List>
           {['Perfil', 'configuración', 'Cerrar'].map((text, index) => (
             <ListItem key={text} disablePadding>
@@ -72,6 +121,13 @@ const MiAvatar = ({foto}) => {
         </List>
       </Box>
     );
+
+
+
+
+
+
+    
   return (
     <Box sx={{ flexGrow: 0 }}>
     

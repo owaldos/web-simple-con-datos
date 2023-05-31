@@ -7,18 +7,18 @@ import Footer from '../Footer'
 
 const Migrado = () => {
   const {store}= useContext(Context)
-  
+  const indexgrado=store.usuario[0].seleccionDelUsuario.grado
     
    
   return (
   
      <>
 
-     <ResponsiveAppBarGrado  grado={store.usuario[0]}/> 
+     <ResponsiveAppBarGrado gradoIndex={indexgrado}/> 
      
         <Box sx={{ justifyContent:'center'}}>
 
-          {store.grados[0].publicaciones.map((publicacion, index)=>(
+          {store.grados[indexgrado].publicaciones.map((publicacion, index)=>(
             <Card key={index} datos={publicacion} index={index}/>
             
             ))}

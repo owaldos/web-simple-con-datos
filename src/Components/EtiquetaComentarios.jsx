@@ -13,6 +13,7 @@ import { blue } from '@mui/material/colors';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Collapse from '@mui/material/Collapse';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import "../App.css"
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -73,7 +74,8 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
 
     //   setValorInput('')
     //   setStateComentar(false)
-    // }else if(valorInput!== ''&& datos.ref=== 'escuela'){
+    // }else 
+    if(valorInput!== ''){
       actions.setNewRespuestaPublicacionEscuela({
         valor:valorInput,
         usuario:store.usuario[0].name,
@@ -86,7 +88,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
       setStateComentar(false)
       setExpanded(true)
     }
-  // }
+   }
 
 
   const tiempoDePublicacion=(datosdelComentario)=>{
@@ -132,7 +134,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
   
 
   return (
-    <List 
+    <List className='aparecer'
     bgcolor='#EFF1F1 '
     sx={{ width: '100%', maxWidth: 900, bgcolor: 'background.paper', mx:'auto',padding:0}}
   
@@ -240,7 +242,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
       </ExpandMore>
 
 {stateComentar===true&&
-            <Box sx={{marginX:5}}>
+            <Box className="aparecer" sx={{marginX:5}}>
               <TextField 
                 id="Responder" 
                 label="Comenta" 
@@ -299,7 +301,7 @@ export default function EtiquetaComentarios({comentario,indexPublicacion,indexCo
       
         {comentario.respuestas.map((r,i)=>(
 
-          <List 
+          <List className="aparecer"
           bgcolor='#EFF1F1 '
           sx={{ width: '93%', maxWidth: 900, bgcolor: 'background.paper', ml:'auto',padding:0}}
           key={i}
