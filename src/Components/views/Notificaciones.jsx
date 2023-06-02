@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {Context} from '../../store/appContext'
 import Footer from '../Footer'
 import ResponsiveAppBar from '../ResponsiveAppBar'
@@ -6,9 +6,19 @@ import EtiquetaNotificacionescopy from '../EtiquetaNotificacionescopy'
 import SectionHeading from '../SectionHeading'
 import { Box } from '@mui/material'
 
-const Notificaciones = () => {
 
-   const { store}= useContext( Context)
+const Notificaciones = () => {
+  
+  
+  const { store}= useContext( Context)
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+  
+  }, [])
+
+
    
   return (
     <>

@@ -69,11 +69,11 @@ function ResponsiveAppBarGrado({props,gradoIndex}) {
 
                    
                     <Typography
-                      variant="h5"
+                      variant="h4"
                       noWrap
                       component="div"
                       color='main.contrastText'
-                      sx={{mx: 1,}}
+                      sx={{mx: 1, fontWeight:'bold'}}
                       onClick={handleClick}
                     >
                         {grado.name}

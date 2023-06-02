@@ -1,17 +1,17 @@
 import React from 'react'
-import { Grid, Box, ListItem,ListItemButton, ListItemText, ListItemIcon} from '@mui/material'
+import { Grid,  ListItem,ListItemButton, ListItemText, ListItemIcon} from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
 
 
 
-const BotonIrEscuela = ({number}) => {
+const BotonRegresar = ({ml,mr,mt,mb,mx,my,m,bg, ir,text}) => {
   
   const navigate= useNavigate()
   
   const handleClick=()=>{
-    navigate('/faceschool')
+    navigate(ir)
   }
   return (
    
@@ -19,7 +19,6 @@ const BotonIrEscuela = ({number}) => {
     <Grid 
       container
       alignItems='center'
-     
      
     >
        
@@ -34,11 +33,24 @@ const BotonIrEscuela = ({number}) => {
         >
             
             <ListItem disablePadding onClick={handleClick}>
-              <ListItemButton sx={{width:'100%', paddingLeft:3, margin:4, background:'#C1C5CA '}}>
+              <ListItemButton 
+                sx={{
+                  width:'100%', 
+                  paddingLeft:3, 
+                  margin:m,
+                  marginX:mx,
+                  marginY:my,
+                  marginTop:mt,
+                  marginBottom:mb, 
+                  marginLeft:ml,
+                  marginRight:mr,
+                  background:bg
+
+                  }}>
                 <ListItemIcon alignitems='center' sx={{minWidth:40}}>
                  <ReplyAllIcon  color='primary.contrastText'  />
                 </ListItemIcon>
-                <ListItemText primary={'Ir a la escuela'} />
+                <ListItemText primary={text} />
         
               </ListItemButton>
             </ListItem>
@@ -56,4 +68,4 @@ const BotonIrEscuela = ({number}) => {
   )
 }
 
-export default BotonIrEscuela
+export default BotonRegresar

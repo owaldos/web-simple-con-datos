@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import {Context} from '../../store/appContext'
 import ResponsiveAppBar from '../ResponsiveAppBar'
 import Footer from '../Footer';
@@ -7,8 +7,18 @@ import EtiquetaPerfil from '../EtiquetaPerfil';
 
 
 
+
 export default function EquipoTrabajo() {
-  const {store }= useContext(Context)
+ 
+  const {store}= useContext(Context)
+ 
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+   
+  
+  }, [])
+ 
   
   
   return (

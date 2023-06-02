@@ -1,15 +1,22 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import {Context} from '../../store/appContext'
 import ResponsiveAppBarGrado from '../ResponsiveAppBarGrado'
 import Footer from '../Footer'
 import SectionHeading from '../SectionHeading'
 import EtiquetaPerfil from '../EtiquetaPerfil'
-import { Box } from '@mui/material'
 import '../../App.css'
 
-const Estudiantes = () => {
-  const {store}= useContext(Context)
 
+const Estudiantes = () => {
+ 
+  const {store}= useContext(Context)
+  
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+  
+  }, [])
   
 
   

@@ -148,7 +148,14 @@ export default function RecipeReviewCard ({datos, index}) {
   //  enviar a perfil
 
   const handlePerfil = () => {
-    navigate('/Mi Perfil')
+    store.perfilDocente.filter((p, i)=>{
+      if(p.name=== datos.name){
+
+        navigate(`/Mi Perfil/${i}`)
+      }
+
+    } )
+  
   }
  
 
@@ -211,7 +218,7 @@ export default function RecipeReviewCard ({datos, index}) {
   
 
   return (
-    <Card  className='aparecer' ref={card} sx={{ maxWidth: 720, marginX:'auto', marginY: 1}} >
+    <Card  className='aparecer' ref={card}  raised={true} sx={{ maxWidth: 720, marginX:'auto', marginY: 1}} >
    
       <CardHeader
         avatar={

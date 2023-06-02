@@ -17,14 +17,22 @@ export default function EtiquetaNotificacionescopy({datos,index}) {
     actions.setvistosNotificacionesEscuela(index)
     
   }
-  // store.escuela[0].notificaciones[index].visto===false? '#EFF1F1 ':'#ffff'
+  
   return (
     <List 
     className='aparecer'
-    sx={{ width: '100%', maxWidth: 900, mx:'auto', paddingY:0, backgroundColor:store.escuela[0].notificaciones[index].visto===true? '#EFF1F1 ':'#ffff'}}
+    sx={{ 
+      width: '100%', 
+      maxWidth: 900, 
+      mx:'auto', 
+      paddingY:0, 
+      opacity:store.escuela[0].notificaciones[index].visto===true? '0.3':'1', 
+      backgroundColor:'#fff'
+    }}
     onClick={handleClick}
+
     >
-      <ListItemButton alignItems="flex-start" sx={{paddingY:0, }}>
+      <ListItemButton alignItems="flex-start" sx={{paddingY:0, }} >
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src={datos.avatar} />
         </ListItemAvatar>

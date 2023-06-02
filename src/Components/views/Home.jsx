@@ -1,19 +1,22 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect} from 'react';
 import {Context} from '../../store/appContext'
 import '../../App.css';
 import { Box} from '@mui/material';
-import Card from '../Card';
+import MiCard from '../MiCard';
 
 import ResponsiveAppBar from '../ResponsiveAppBar';
 import EtiquetaComentarios from '../EtiquetaComentarios';
 
 
- 
-
-
 
 
 function Home() {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+  }, [])
+  
   const {store}= useContext(Context)
   
   return (
@@ -31,7 +34,7 @@ function Home() {
 
       {store.escuela[0].publicaciones.map((publicacion, index)=>(
         
-        <Card key={index} datos={publicacion} index={index}/>
+        <MiCard key={index} datos={publicacion} index={index}/>
         
          
 

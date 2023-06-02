@@ -1,16 +1,23 @@
-import React,{useContext} from 'react'
+import React,{useContext, useEffect} from 'react'
 import { Context } from '../../store/appContext'
 
 import Footer from '../Footer'
 import ListaMenu from '../ListaMenu'
 import SectionHeading from '../SectionHeading'
 import { useNavigate } from 'react-router-dom'
-import BotonIrEscuela from '../BotorIrEscuela'
+import BotonRegresar from '../BotonRegresar'
 
 const SelecGrado = () => {
-  const {store, actions }= useContext(Context)
 
+  const {store, actions }= useContext(Context)
   const navigate= useNavigate()
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+    
+  
+  }, [])
+  
   
   const selecionDelusuario=(grado)=>{
     
@@ -25,7 +32,7 @@ const SelecGrado = () => {
   
 
      <>
-       <BotonIrEscuela/>
+       <BotonRegresar m={4} bg='#C1C5CA ' ir='/faceschool' text="Ir a la escuela"/>
 
         <SectionHeading name='Selecciona el grado'/>
 

@@ -1,12 +1,19 @@
-import React,{useContext} from 'react'
+import React,{useContext , useEffect } from 'react'
 import { Context } from '../../store/appContext'
 import ResponsiveAppBarGrado from '../ResponsiveAppBarGrado'
-import Card from '../Card'
+import MiCard from '../MiCard'
 import { Box } from '@mui/material'
 import Footer from '../Footer'
 
 const Migrado = () => {
-  const {store}= useContext(Context)
+
+  const {store  }= useContext(Context)
+  
+  useEffect(() => {
+    window.scrollTo(0,0)
+    
+  
+  }, [])
   const indexgrado=store.usuario[0].seleccionDelUsuario.grado
     
    
@@ -19,7 +26,7 @@ const Migrado = () => {
         <Box sx={{ justifyContent:'center'}}>
 
           {store.grados[indexgrado].publicaciones.map((publicacion, index)=>(
-            <Card key={index} datos={publicacion} index={index}/>
+            <MiCard key={index} datos={publicacion} index={index}/>
             
             ))}
               

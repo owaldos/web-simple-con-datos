@@ -68,11 +68,11 @@ function ResponsiveAppBar(props) {
                 
                  
                     <Typography
-                      variant="h6"
+                      variant="h5"
                       noWrap
                       component="div"
                       color='main.contrastText'
-                      sx={{mx: 1,}}
+                      sx={{mx: 1, fontWeight:'bold'}}
                       onClick={handleClick}
                     >
                            {store.escuela[0].name}

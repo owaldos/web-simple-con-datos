@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -28,6 +28,14 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+
+ 
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+  }, [])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

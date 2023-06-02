@@ -14,13 +14,19 @@ import e1 from '../images/1685557836179.jpg'
 import e2 from '../images/1685557836200.jpg'
 import e4 from '../images/compres42.mp4'
 import e5 from '../images/compress43.mp4'
+import faltaImg from '../images/falta imagen.png'
+import sinFoto from '../images/sin foto.jpg'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			cargado:false,
 			escuela: [
 				{ 
 			    
 				 name:'U.E Guarenas',
+				 logo:f7,
+				 faltaImg:faltaImg,
+				 sinFoto: sinFoto,
 				 Codigo:'OD04241907',
 				 turno:'Bolivariano',
 				 isReadyForInstall:false,
@@ -64,7 +70,85 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 contenido:'',
 					 visto:false
 	
-					}
+					},{
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:f1,
+						inicio:684366844055,
+						fecha:'1/1/2023',
+						contenido:'',
+						visto:false
+   
+					   },
+					   {
+						   name:'Valentina Salas',
+						   avatar:valentina,
+						   img:f2,
+						   inicio:684366844055,
+						   fecha:'1/1/2023',
+						   contenido:'',
+						   visto:false
+	  
+					   },
+					   {
+						   name:'Oswaldo Salas',
+						   avatar:oswaldo,
+						   img:f3,
+						   inicio:684366844055,
+						   fecha:'1/1/2023',
+						   contenido:'',
+						   visto:false
+	  
+					   },
+					   {
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:f1,
+						inicio:684366844055,
+						fecha:'1/1/2023',
+						contenido:'',
+						visto:false
+	   
+					   },{
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:f1,
+						inicio:684366844055,
+						fecha:'1/1/2023',
+						contenido:'',
+						visto:false
+   
+					   },
+					   {
+						   name:'Valentina Salas',
+						   avatar:valentina,
+						   img:f2,
+						   inicio:684366844055,
+						   fecha:'1/1/2023',
+						   contenido:'',
+						   visto:false
+	  
+					   },
+					   {
+						   name:'Oswaldo Salas',
+						   avatar:oswaldo,
+						   img:f3,
+						   inicio:684366844055,
+						   fecha:'1/1/2023',
+						   contenido:'',
+						   visto:false
+	  
+					   },
+					   {
+						name:'Oswaldo Salas',
+						avatar:oswaldo,
+						img:f1,
+						inicio:684366844055,
+						fecha:'1/1/2023',
+						contenido:'',
+						visto:false
+	   
+					   }
 					
 				],
 				publicaciones:[
@@ -452,84 +536,135 @@ const getState = ({ getStore, getActions, setStore }) => {
 				'Horarios', 'Proyectos y Acuerdos', 'Tareas'
 		    ],
 			proyectosGrado:['Acuerdos de convivencias','Proyecto de aula','Tareas','Cronograma de actividades'],
+
 			perfilDocente:[
 				{
 				img:oswaldo,
 				name:'Oswaldo Salas',
 				cargo:'Deporte',
-				fecha: '1 min'
+				titulos:'Licenciado en Educación',
+				matricula: 60,
+				vive:'Los Teques',
+				esDe:'Los Teques',
+				trabajoEn:'Escuela Buenos Aires',
+				estadoCivil:'Casado',
+				fechaNacimiento: '07/11/1985'
+				
 			},
 			{
-				img:f4,
+				img:null,
 				name:'Diego Ardila',
 				cargo:'Supervisor',
-				fecha: '2 hrs'
+				titulos:'Licenciado en Educación',
+				matricula: 1030,
+				vive:'Los Teques',
+				esDe:'Nirgua',
+				trabajoEn:'Escuela Nirgua',
+				estadoCivil:'soltero',
+				fechaNacimiento: '04/02/2012'
 			},
 			{
 				img:valentina,
 				name:'Valentina Salas',
 				cargo:'Directora',
-				fecha: '2 Dias'
+				titulos:'Doctora en comunicación',
+				matricula: '1006 estudiantes y 60 docentes',
+				vive:'Lomas de Urquias',
+				esDe:'Carupano',
+				trabajoEn:'defensoria del pueblo',
+				estadoCivil:'Ssoltera',
+				fechaNacimiento: '31/12/2014'
+				
 			},
 			{
 				img:oswaldo,
 				name:'Oswaldo Amundarain',
 				cargo:'Deporte',
-				fecha: '1 min'
+				titulos:'Licenciado en Educación',
+				matricula: 60,
+				vive:'Los Teques',
+				esDe:'Los Teques',
+				trabajoEn:'Escuela Buenos Aires',
+				estadoCivil:'Casado',
+				fechaNacimiento: '07/11/1985'
+				
 			},
 			{
-				img:'',
+				img:f7,
 				name:'Rosa Margarita Amundarain',
 				cargo:'Docente Aula',
-				fecha: '2 hrs'
+				titulos:'Licenciado en Educación',
+				matricula: 30,
+				vive:'Los Teques',
+				esDe:'Er Pilar',
+				trabajoEn:'Escuela Bolivariana Guayana',
+				estadoCivil:'Casada',
+				fechaNacimiento: '05/03/1992'
+				
 			},
 			{
 				img:valentina,
 				name:'Valentina Roseswel Salas',
 				cargo:'Directora',
-				fecha: '2 Dias'
+				titulos:'Licenciado en Educación',
+				matricula: 60,
+				vive:'Los Teques',
+				esDe:'Los Teques',
+				trabajoEn:'Escuela Buenos Aires',
+				estadoCivil:'Casado',
+				fechaNacimiento: '07/11/1985'
+				
 			}],
+
+
 			perfilEstudiante:[
 				{
 				img:f5,
 				name:'Oswaldo',
 				cargo:'Estudiante',
-				fecha: '1 min'
+				
 			},
 			{
 				img:f6,
 				name:'Diego',
 				cargo:'Estudiante',
-				fecha: '2 hrs'
+				
 			},
 			{
 				img:f7,
 				name:'Valentina',
 				cargo:'Estudiante',
-				fecha: '2 Dias'
+				
 			},
 			{
 				img:oswaldo,
 				name:'Oswaldo',
 				cargo:'Representante',
-				fecha: '1 min'
+				
 			},
 			{
 				img:'',
 				name:'Rosa',
 				cargo:'Estudiante',
-				fecha: '2 hrs'
+				
 			},
 			{
 				img:valentina,
 				name:'Valentina',
 				cargo:'Estudiante',
-				fecha: '2 Dias'
+				
 			}],
 
 		},
 	
 	actions: {
+		cargado:()=>{
+			const store= getStore();
+			store.cargado=true
+			setStore( store)
+
+		},
+		
 		fecha:(segundos)=>{
 			const store= getStore();
 			store.escuela[0].fecha=segundos
