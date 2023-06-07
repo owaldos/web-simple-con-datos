@@ -37,7 +37,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 img:f1,
 					 inicio:684366844055,
 					 fecha:'1/1/2023',
-					 contenido:'',
+					 contenido:['el contenido','una respuesta'],
+
 					 visto:false
 
 					},
@@ -47,7 +48,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f2,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
    
 					},
@@ -57,7 +59,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f3,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
    
 					},
@@ -67,7 +70,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 img:f1,
 					 inicio:684366844055,
 					 fecha:'1/1/2023',
-					 contenido:'',
+					 contenido:['el contenido','una respuesta'],
+
 					 visto:false
 	
 					},{
@@ -76,7 +80,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f1,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
    
 					   },
@@ -86,7 +91,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   img:f2,
 						   inicio:684366844055,
 						   fecha:'1/1/2023',
-						   contenido:'',
+						   contenido:['el contenido','una respuesta'],
+
 						   visto:false
 	  
 					   },
@@ -96,7 +102,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   img:f3,
 						   inicio:684366844055,
 						   fecha:'1/1/2023',
-						   contenido:'',
+						   contenido:['el contenido','una respuesta'],
+
 						   visto:false
 	  
 					   },
@@ -106,7 +113,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f1,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
 	   
 					   },{
@@ -115,7 +123,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f1,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
    
 					   },
@@ -125,7 +134,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   img:f2,
 						   inicio:684366844055,
 						   fecha:'1/1/2023',
-						   contenido:'',
+						   contenido:['el contenido','una respuesta'],
+
 						   visto:false
 	  
 					   },
@@ -135,7 +145,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   img:f3,
 						   inicio:684366844055,
 						   fecha:'1/1/2023',
-						   contenido:'',
+						   contenido:['el contenido','una respuesta'],
+
 						   visto:false
 	  
 					   },
@@ -145,7 +156,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						img:f1,
 						inicio:684366844055,
 						fecha:'1/1/2023',
-						contenido:'',
+						contenido:['el contenido','una respuesta'],
+
 						visto:false
 	   
 					   }
@@ -282,6 +294,139 @@ const getState = ({ getStore, getActions, setStore }) => {
 			grados:[
 				{
 					name:'1er Grado',
+					notificaciones:[
+						{
+						 name:'Oswaldo Salas',
+						 avatar:oswaldo,
+						 img:f1,
+						 inicio:684366844055,
+						 fecha:'1/1/2023',
+						 contenido:['contenido de primero','una respuesta de un representante'],
+	
+						 visto:false
+	
+						},
+						{
+							name:'Valentina Salas',
+							avatar:valentina,
+							img:f2,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						},
+						{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f3,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						},
+						{
+						 name:'Oswaldo Salas',
+						 avatar:oswaldo,
+						 img:f1,
+						 inicio:684366844055,
+						 fecha:'1/1/2023',
+						 contenido:['el contenido','una respuesta'],
+	
+						 visto:false
+		
+						},{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						   },
+						   {
+							   name:'Valentina Salas',
+							   avatar:valentina,
+							   img:f2,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							   name:'Oswaldo Salas',
+							   avatar:oswaldo,
+							   img:f3,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+		   
+						   },{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						   },
+						   {
+							   name:'Valentina Salas',
+							   avatar:valentina,
+							   img:f2,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							   name:'Oswaldo Salas',
+							   avatar:oswaldo,
+							   img:f3,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+		   
+						   }
+						
+					],
 					proyectos:['Acuerdos de convivencias','Proyecto de aula','Tareas','Cronograma de actividades'],
 					estudiantes:[
 						{
@@ -376,6 +521,139 @@ const getState = ({ getStore, getActions, setStore }) => {
 			    },
 				{
 					name:'4to Grado',
+					notificaciones:[
+						{
+						 name:'Oswaldo Salas',
+						 avatar:oswaldo,
+						 img:f1,
+						 inicio:684366844055,
+						 fecha:'1/1/2023',
+						 contenido:['el contenidode 4to','una respuesta'],
+	
+						 visto:false
+	
+						},
+						{
+							name:'Valentina Salas',
+							avatar:valentina,
+							img:f2,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						},
+						{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f3,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						},
+						{
+						 name:'Oswaldo Salas',
+						 avatar:oswaldo,
+						 img:f1,
+						 inicio:684366844055,
+						 fecha:'1/1/2023',
+						 contenido:['el contenido','una respuesta'],
+	
+						 visto:false
+		
+						},{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						   },
+						   {
+							   name:'Valentina Salas',
+							   avatar:valentina,
+							   img:f2,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							   name:'Oswaldo Salas',
+							   avatar:oswaldo,
+							   img:f3,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+		   
+						   },{
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+	   
+						   },
+						   {
+							   name:'Valentina Salas',
+							   avatar:valentina,
+							   img:f2,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							   name:'Oswaldo Salas',
+							   avatar:oswaldo,
+							   img:f3,
+							   inicio:684366844055,
+							   fecha:'1/1/2023',
+							   contenido:['el contenido','una respuesta'],
+	
+							   visto:false
+		  
+						   },
+						   {
+							name:'Oswaldo Salas',
+							avatar:oswaldo,
+							img:f1,
+							inicio:684366844055,
+							fecha:'1/1/2023',
+							contenido:['el contenido','una respuesta'],
+	
+							visto:false
+		   
+						   }
+						
+					],
 					proyectos:['Acuerdos de convivencias','Proyecto de aula','Tareas','Cronograma de actividades'],
 					estudiantes:[
 						{
@@ -675,6 +953,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		setvistosNotificacionesEscuela:(index) => {
 			const store= getStore();
 			store.escuela[0].notificaciones[index].visto=true
+			setStore( store)
+			
+		},
+		setvistosNotificacionesGrado:(index, indexNotif) => {
+			const store= getStore();
+			store.grados[index].notificaciones[indexNotif].visto=true
 			setStore( store)
 			
 		},

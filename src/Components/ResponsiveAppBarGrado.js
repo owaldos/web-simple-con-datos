@@ -28,12 +28,11 @@ function HideOnScroll(props) {
 
 
 
-function ResponsiveAppBarGrado({props,gradoIndex}) {
+function ResponsiveAppBarGrado({props,gradoIndex})  {
  
  const {store }=useContext(Context);
  const navigate= useNavigate()
  
- const grado= store.grados[gradoIndex]
  
  const handleClick= ()=>{
   navigate(`/selecGrado`)
@@ -76,7 +75,7 @@ function ResponsiveAppBarGrado({props,gradoIndex}) {
                       sx={{mx: 1, fontWeight:'bold'}}
                       onClick={handleClick}
                     >
-                        {grado.name}
+                         {store.grados[gradoIndex].name}
                     </Typography>
                   
                   
@@ -98,7 +97,7 @@ function ResponsiveAppBarGrado({props,gradoIndex}) {
               </Grid>
                    
                  
-              <NavegadorGrado  grado={grado}/> 
+              <NavegadorGrado  grado={gradoIndex}/> 
             </Grid>
           </Toolbar>
        

@@ -28,7 +28,7 @@ const Notificaciones = () => {
 
       {store.escuela[0].notificaciones.map((notif, index)=>(
         
-        <EtiquetaNotificacionescopy key={index} datos={notif} index={index}/>
+        <EtiquetaNotificacionescopy key={index} datos={notif} index={index} de='escuela'/>
 
       ))}
     </Box>

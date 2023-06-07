@@ -17,7 +17,7 @@ import NotificacionesGrado from './Components/views/NotificacionesGrado';
 import MenuGrado from './Components/views/MenuGrado';
 import Migrado from './Components/views/Migrado';
 import MiPerfil from './Components/views/MiPerfil';
-
+import ResponderNotificaciones from './Components/ResponderNotificaciones';
 
 const theme= createTheme({
   
@@ -59,6 +59,10 @@ const router = createBrowserRouter([
 {
   path: '/notificaciones',
   element:<Notificaciones/>
+},
+{
+  path: '/responderNotificaciones/:donde/:index',
+  element:<ResponderNotificaciones/>
 },
 {
   path: '/menu',

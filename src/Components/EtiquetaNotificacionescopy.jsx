@@ -8,13 +8,20 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import "../App.css"
+import { useNavigate } from 'react-router-dom';
 
-export default function EtiquetaNotificacionescopy({datos,index}) {
+export default function EtiquetaNotificacionescopy({datos,index,de}) {
 
   const {store, actions}= useContext(Context)
+  const navigate=useNavigate()
 
   const handleClick= ()=>{
-    actions.setvistosNotificacionesEscuela(index)
+    if(de==='escuela'){
+
+      actions.setvistosNotificacionesEscuela(index)
+    } else actions.setvistosNotificacionesGrado(de,index)
+
+    navigate(`/responderNotificaciones/${de}/${index}`)
     
   }
   
@@ -26,7 +33,18 @@ export default function EtiquetaNotificacionescopy({datos,index}) {
       maxWidth: 900, 
       mx:'auto', 
       paddingY:0, 
-      opacity:store.escuela[0].notificaciones[index].visto===true? '0.3':'1', 
+      opacity:de==='escuela'
+        ?
+         store.escuela[0].notificaciones[index].visto===true
+          ?
+             '0.5'
+          :
+            '1'
+        :store.grados[de].notificaciones[index].visto===true
+          ?
+          '0.5'
+          :
+           '1',
       backgroundColor:'#fff'
     }}
     onClick={handleClick}

@@ -10,11 +10,11 @@ import { NavLink, Link } from 'react-router-dom';
 import './../App.css'
 import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
-function NavegadorGrado( grado) {
+function NavegadorGrado({grado}) {
     const {store} = useContext(Context)
     
     
-
+  
     
   return (
 
@@ -48,7 +48,7 @@ function NavegadorGrado( grado) {
 
             <Grid item >
                 <NavLink 
-                    to={`/miGrado/${grado.name}`} 
+                    to={`/miGrado/${grado}`} 
                     className={({ isActive }) =>
                     isActive ? "active":''
                     }
@@ -65,7 +65,7 @@ function NavegadorGrado( grado) {
         
 
             <Grid item>
-                <NavLink to={`/miGrado/${grado.name}/estudiantes`}
+                <NavLink to={`/miGrado/${grado}/estudiantes`}
                     className={({ isActive, isPending }) =>
                     isActive
                     ? "active"
@@ -86,7 +86,7 @@ function NavegadorGrado( grado) {
 
             <Grid item>
                 <NavLink 
-                    to={`/miGrado/${grado.name}/proyectos`}
+                    to={`/miGrado/${grado}/proyectos`}
                     className={({ isActive, isPending }) =>
                     isActive
                     ? "active"
@@ -108,7 +108,7 @@ function NavegadorGrado( grado) {
 
             <Grid item>
                 <NavLink 
-                    to={`/miGrado/${grado.name}/notificacionesGrado`}
+                    to={`/miGrado/${grado}/notificacionesGrado`}
                     className={({ isActive }) =>
                         isActive ? "active":''
                     }
@@ -117,7 +117,7 @@ function NavegadorGrado( grado) {
 
                         <IconButton color='secondary'>
                             <Badge
-                                badgeContent={1} 
+                                badgeContent={store.grados[grado].notificaciones.filter(item=>item.visto===false).length} 
                                 anchorOrigin={{
                                     vertical: 'top',
                                     horizontal: 'right',
@@ -135,7 +135,7 @@ function NavegadorGrado( grado) {
 
             <Grid item>
                 <NavLink
-                    to={`/miGrado/${grado.name}/menuGrado`}
+                    to={`/miGrado/${grado}/menuGrado`}
                     className={({ isActive, isPending }) =>
                     isActive
                     ? "active"
