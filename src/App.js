@@ -41,7 +41,7 @@ const theme= createTheme({
 const router = createBrowserRouter([
 
 {
-  path: '/faceschool',
+  path: '/web-simple-con-datos',
   element:<Home/>,
   errorElement:<Error/>,
 

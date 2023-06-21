@@ -1,8 +1,8 @@
 {
-  "name": "faceschool",
+  "name": "web-simple",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://owaldos.github.io/faceschool",
+  "homepage": "https://owaldos.github.io/web-simple-con-datos/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",

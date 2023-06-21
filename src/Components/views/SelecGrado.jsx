@@ -32,7 +32,7 @@ const SelecGrado = () => {
   
 
      <>
-       <BotonRegresar m={4} bg='#C1C5CA ' ir='/faceschool' text="Regresar a IUNAV"/>
+       <BotonRegresar m={4} bg='#C1C5CA ' ir='/web-simple-con-datos' text="Regresar a IUNAV"/>
 
         <SectionHeading name='Selecciona '/>
 

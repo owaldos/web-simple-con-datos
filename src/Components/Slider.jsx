@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const MySlider = styled.img`
-max-width:720px;
+
 width:100%;
-max-height:250px;
+
 object-fit:cover;
-height:180px;
+
 opacity:0;
 transition: 1s;
 &.loaded{

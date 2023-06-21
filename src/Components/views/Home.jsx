@@ -33,7 +33,7 @@ function Home() {
 
     <Box sx={{ justifyContent:'center'}}>
 
-      <Slider  images={['inicial.png','3.jpeg','descarga.jpeg']} buttons={false} intervalImg={5000} autoPlay={true}/>
+      <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>
 
       {store.escuela[0].publicaciones.map((publicacion, index)=>(
         

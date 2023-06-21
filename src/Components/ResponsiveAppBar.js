@@ -13,12 +13,15 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, } from '@mui/material/styles';
 import {lightGreen} from '@mui/material/colors';
-
+import logo from '../images/logopag.png.pagespeed.ce.AtdtHXJTVH.png'
 
 
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
+  // background:'#D7FF8A ',
+  // width:'100%',
+  // padding:'5px',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -106,21 +109,21 @@ function ResponsiveAppBar(props) {
               >
                 <Grid  
                   
-                  item xs={2} 
+                  item xs={2}  
                   direction="row"
                   justifyContent="center"
                   alignItems="center"  
 
                   >
-                   <div style={{maxHeight:'100px', display: 'flex' ,justifyContent: 'center', marginLeft:5}}>
+                   <div style={{ display: 'flex' ,justifyContent: 'center', marginLeft:5}}>
 
-                    <img src= 'http://www.vitbikesvzla.com/pict/logopag.png.pagespeed.ce.AtdtHXJTVH.png' alt="logo" width={100} />
+                    <img src= {logo} alt="logo" width={80} />
                    </div>
 
                 </Grid>
                 <Grid  
                   
-                  item xs={9} 
+                  item xs={9}  
                   direction="row"
                   justifyContent="flex-start"
                   alignItems="center"  
@@ -131,10 +134,10 @@ function ResponsiveAppBar(props) {
                       noWrap
                       component="h1"
                       color='main.contrastText'
-                      sx={{mx: 1, fontWeight:'bold', marginLeft:3, fontSize: 'calc(1em + 1vw)'}}
+                      sx={{mx: 1, fontWeight:'bold', marginLeft:3, fontSize: 'calc(10px + 1.3vw)' }}
                       onClick={handleClick}
                     >
-                          Inversiones Vit Bikes de Vzla, C.A.  
+                          Inversiones Vit Bikes de Vzla, C.A.
                     </Typography>
                  
 
@@ -167,7 +170,7 @@ function ResponsiveAppBar(props) {
      
       </Container>
     </HideOnScroll>
-     <Box sx={{paddingY:5}}></Box>
+     <Box sx={{paddingY:8}}></Box>
        
   </>
   );

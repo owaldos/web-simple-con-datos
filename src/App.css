@@ -1,8 +1,8 @@
 .active{
     font-size: 14;
-
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #fff;
     padding-bottom: 5px;
+    text-decoration: none;
 }
 
 video{

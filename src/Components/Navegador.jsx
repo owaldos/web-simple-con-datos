@@ -6,10 +6,10 @@ import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
 import { Grid, IconButton,  Badge,  Tooltip} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalLibrary from '@mui/icons-material/LocalLibrary';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import { NavLink} from 'react-router-dom';
 import './../App.css'
-
-
+import { Typography } from '@mui/material'
 
 
 
@@ -28,20 +28,33 @@ function Navegador() {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        columnSpacing={{xs:3.5,sm:12}}
+        columnSpacing={{xs:2,sm:8, md:14}}
         >
         <Grid item >
             <NavLink 
-            to={'/faceschool'} 
+            to={'/web-simple-con-datos'} 
             className={({ isActive }) =>
                 isActive ? "active" : ''
-            }>
+
+            }
+          
+            >
                 
-            <Tooltip title="Pag principal">
-                <IconButton  color='secondary'>
-                <Home />
+           
+                <IconButton  color='secondary' sx={{paddingX:0}}>
+                <AddBusinessIcon />
+                 
                 </IconButton>
-            </Tooltip>
+                <Typography 
+                variant="body2" 
+                component='p'  
+                color= 'secondary'
+                display='inline'
+                sx={{fontSize:'calc(5px + 1vw)'}}
+                >
+                    Catálogo
+                </Typography>
+           
             </NavLink>
         </Grid>
         
@@ -54,37 +67,31 @@ function Navegador() {
                 : isPending
                 ? "pending"
                 : ""
-                }>
-            <Tooltip title="Personal Docente">
-                <IconButton color='secondary'>
+                }
+                style={{textDecoration:'none'}}
+                >
+          
+                <IconButton color='secondary'sx={{paddingX:0}}>
                 
                 <SwitchAccountIcon />
+                <Typography 
+                variant="body2" 
+                component='p'  
+                color= 'secondary'
+                display='inline'
+                sx={{fontSize:'calc(5px + 1vw)'}}
+                >
+                    Contáctanos
+                </Typography>
                 </IconButton >
-            </Tooltip>    
+             
             </NavLink>
         </Grid>
 
             
 
 
-        <Grid item>
-            <NavLink to={'/selecGrado'}
-            className={({ isActive, isPending }) =>
-            isActive
-            ? "active"
-            : isPending
-            ? "pending"
-            : ""
-        }
-            >
-            <Tooltip title="Mi grado">
-                <IconButton  color='secondary'>
-                <LocalLibrary />
-                </IconButton>
-            </Tooltip>
-            </NavLink>
-        </Grid>
-
+       
 
 
 
@@ -93,10 +100,12 @@ function Navegador() {
             to={'/Notificaciones'}
             className={({ isActive }) =>
                 isActive ? "active":''
-            }>
-            <Tooltip title="Notificaciones">
+            }
+            style={{textDecoration:'none'}}
+            >
+           
 
-                <IconButton color='secondary'>
+                <IconButton color='secondary'sx={{paddingX:0}}>
                 <Badge
                 
                 badgeContent={store.escuela[0].notificaciones.filter(item=>item.visto===false).length} 
@@ -108,8 +117,18 @@ function Navegador() {
                 >
                     <NotificationsActiveIcon />
                 </Badge>
+                
+                <Typography 
+                variant="body2" 
+                component='p'  
+                color= 'secondary'
+                display='inline'
+                sx={{fontSize:'calc(5px + 1vw)'}}
+                >
+                    Notificaciones
+                </Typography>
                 </IconButton>
-            </Tooltip>
+          
             </NavLink>
             
         </Grid>
@@ -123,14 +142,15 @@ function Navegador() {
             : isPending
             ? "pending"
             : ""
-        }
+        }  
+        style={{textDecoration:'none'}}
             >
-            <Tooltip title="Menu">
-                <IconButton  color='secondary'>
+            
+                <IconButton  color='secondary'sx={{paddingX:0}}>
                 <MenuIcon />
+                <pre style={{fontSize:'calc(5px + 1vw)'}}> Menú</pre>
                 </IconButton>
-            </Tooltip>
-
+           
             </NavLink>
         </Grid>
 
