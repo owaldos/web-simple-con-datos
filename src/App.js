@@ -9,6 +9,7 @@ import SignIn from './Components/views/SignIn';
 import SignUp from './Components/views/SignUp';
 import './index.css';
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { lime,lightGreen } from '@mui/material/colors';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Notificaciones from './Components/views/Notificaciones';
 import Estudiantes from './Components/views/Estudiantes';
@@ -20,22 +21,17 @@ import MiPerfil from './Components/views/MiPerfil';
 import ResponderNotificaciones from './Components/ResponderNotificaciones';
 
 const theme= createTheme({
-  
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#ffffff',
-      contrastText: 'rgba(0,13,125,0.87)',
-    },
-    secondary: {
-      main: '#888D9B',
 
+  
+  
+  
+    palette: {
+      primary: {
+        main:'#ffff',
+      },
+      secondary: lightGreen,
     },
-   
-    background: {
-      default: '#e8e8e8',
-    }
-  }  
+  
 
 })
 

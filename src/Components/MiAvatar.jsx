@@ -101,14 +101,14 @@ async function downloadApp() {
         <ListItemIcon>
            <MailIcon />
         </ListItemIcon>
-        <ListItemText primary={'instalar App'} />
+        <ListItemText primary={'Instalar App'} />
       </ListItemButton>
 
        }
       
      
         <List>
-          {['Perfil', 'configuración', 'Cerrar'].map((text, index) => (
+          {['Perfil', 'Configuración', 'Cerrar'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>

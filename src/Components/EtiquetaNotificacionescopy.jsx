@@ -33,19 +33,19 @@ export default function EtiquetaNotificacionescopy({datos,index,de}) {
       maxWidth: 900, 
       mx:'auto', 
       paddingY:0, 
-      opacity:de==='escuela'
+      backgroundColor:de==='escuela'
         ?
          store.escuela[0].notificaciones[index].visto===true
           ?
-             '0.5'
+          '#E1E1E1  '
           :
-            '1'
+          '#fff'
         :store.grados[de].notificaciones[index].visto===true
           ?
-          '0.5'
+          '#E1E1E1 '
           :
-           '1',
-      backgroundColor:'#fff'
+          '#fff',
+     
     }}
     onClick={handleClick}
 
@@ -55,20 +55,10 @@ export default function EtiquetaNotificacionescopy({datos,index,de}) {
           <Avatar alt="Remy Sharp" src={datos.avatar} />
         </ListItemAvatar>
         <ListItemText
-          primary={datos.name}
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                {datos.fecha }
-              </Typography>
-              {" El dia de mañana no tendremos clases ..."}
-            </React.Fragment>
-          }
+          primary={`${datos.name}  ${datos.fecha} `    }
+          secondary={`${datos.contenido.slice(0,50)}  ...`}
+         
+          
         />
       </ListItemButton>
       <Divider variant="inset" component="li" />

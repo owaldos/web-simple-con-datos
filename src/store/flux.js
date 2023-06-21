@@ -1,21 +1,22 @@
 import valentina from '../images/valentina.jpeg'
 import oswaldo from '../images/119976556_121520916358929_6799021330331753240_n.jpg'
 import f1 from '../images/2.jpeg'
-import f2 from '../images/3.jpeg'
-import f3 from '../images/Captura de pantalla de 2022-03-08 10-24-30.png'
+import f2 from '../images/Captura desde 2023-06-11 13-12-59.png'
+import f3 from '../images/WhatsApp Image 2023-06-11 at 2.11.28 PM.jpeg'
 import f4 from '../images/diego.png'
 import f5 from '../images/2021-07-11-212717.jpg'
 import f6 from '../images/2022-03-22-111021.jpg'
 import f7 from '../images/2022-03-22-120958.jpg'
-import v from '../images/compress3.mp4'
-import f8 from '../images/Foto de Oswaldo (1).jpg'
-import v2 from '../images/y2mate.com - DISCURSO DIRECTOR PARA BIENVENIDA INICIO DE CLASES 2021_v240P.mp4'
+import i1 from '../images/inicial.png'
+import f8 from '../images/h_react.jpg'
+import v2 from '../images/VID-20230531-WA0009.mp4'
 import e1 from '../images/1685557836179.jpg'
 import e2 from '../images/1685557836200.jpg'
 import e4 from '../images/compres42.mp4'
 import e5 from '../images/compress43.mp4'
 import faltaImg from '../images/falta imagen.png'
 import sinFoto from '../images/sin foto.jpg'
+import propuesta from '../images/propuesta.mp4'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -23,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			escuela: [
 				{ 
 			    
-				 name:'U.E Guarenas',
+				 name:'IUNAV',
 				 logo:f7,
 				 faltaImg:faltaImg,
 				 sinFoto: sinFoto,
@@ -34,12 +35,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
-					 img:f1,
 					 inicio:684366844055,
-					 fecha:'1/1/2023',
-					 contenido:['el contenido','una respuesta'],
-
-					 visto:false
+					 fecha:'01/05/2023',
+					 contenido:'Hola Valentina, queremos recordarte la participación especial que tienes con nosotros este fin de semana. por favor confirma tu asistencia',
+					 visto:false,
+                  
 
 					},
 					{
@@ -47,8 +47,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:valentina,
 						img:f2,
 						inicio:684366844055,
-						fecha:'1/1/2023',
-						contenido:['el contenido','una respuesta'],
+						fecha:'01/05/2023',
+						contenido:'en estos momentos estoy trabajando con WebSocket para poder ofrecer comunicación en tiempo real como la hace WhatsApp ',
 
 						visto:false
    
@@ -58,7 +58,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:oswaldo,
 						img:f3,
 						inicio:684366844055,
-						fecha:'1/1/2023',
+						fecha:'01/05/2023',
 						contenido:['el contenido','una respuesta'],
 
 						visto:false
@@ -69,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 avatar:oswaldo,
 					 img:f1,
 					 inicio:684366844055,
-					 fecha:'1/1/2023',
+					 fecha:'01/05/2023',
 					 contenido:['el contenido','una respuesta'],
 
 					 visto:false
@@ -79,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:oswaldo,
 						img:f1,
 						inicio:684366844055,
-						fecha:'1/1/2023',
+						fecha:'01/05/2023',
 						contenido:['el contenido','una respuesta'],
 
 						visto:false
@@ -90,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   avatar:valentina,
 						   img:f2,
 						   inicio:684366844055,
-						   fecha:'1/1/2023',
+						   fecha:'01/05/2023',
 						   contenido:['el contenido','una respuesta'],
 
 						   visto:false
@@ -101,7 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   avatar:oswaldo,
 						   img:f3,
 						   inicio:684366844055,
-						   fecha:'1/1/2023',
+						   fecha:'01/05/2023',
 						   contenido:['el contenido','una respuesta'],
 
 						   visto:false
@@ -112,7 +112,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:oswaldo,
 						img:f1,
 						inicio:684366844055,
-						fecha:'1/1/2023',
+						fecha:'01/05/2023',
 						contenido:['el contenido','una respuesta'],
 
 						visto:false
@@ -122,7 +122,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:oswaldo,
 						img:f1,
 						inicio:684366844055,
-						fecha:'1/1/2023',
+						fecha:'01/05/2023',
 						contenido:['el contenido','una respuesta'],
 
 						visto:false
@@ -133,7 +133,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   avatar:valentina,
 						   img:f2,
 						   inicio:684366844055,
-						   fecha:'1/1/2023',
+						   fecha:'01/05/2023',
 						   contenido:['el contenido','una respuesta'],
 
 						   visto:false
@@ -144,7 +144,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						   avatar:oswaldo,
 						   img:f3,
 						   inicio:684366844055,
-						   fecha:'1/1/2023',
+						   fecha:'01/05/2023',
 						   contenido:['el contenido','una respuesta'],
 
 						   visto:false
@@ -155,7 +155,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						avatar:oswaldo,
 						img:f1,
 						inicio:684366844055,
-						fecha:'1/1/2023',
+						fecha:'01/05/2023',
 						contenido:['el contenido','una respuesta'],
 
 						visto:false
@@ -165,47 +165,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				],
 				publicaciones:[
 					{
-					 tipo:'video',
+					 tipo:'img',
 					 ref: 'escuela',
 					 name:'Oswaldo Salas',
 					 avatar:oswaldo,
-					 img:v2,
-					 inicio:'168449395490',
-					 fecha:'12/1/2027',
-					 contenido:'aquí les dejo un video bien entretenido y educativo 100%, dala un vistazo y comenta que te parece ',
+					 img:i1,
+					 inicio:'1686509124322',
+					 fecha:'11/06/2023',
+					 contenido:'La pagina inicial conviene que sea  complatamente dinámica para modificarla las veces que desee desde su móvil.',
 					 visto:false,
 					 like:false,
 					 numLike:null,
-					 comentarios:[
-						{
-							usuario:'Valentina Salas',
-							valor: 'me gustan mucho ese tipo de videos, tanto para los niños como para nosotros los adultos',
-							inicio:'1684366844055',
-							fecha:'12/1/2023',
-							avatar:valentina,
-							respuestas:[]
-
-						},
-						{
-							usuario:'Oswaldo Salas',
-							valor: 'hola que tal estan todos, no me parece esos metodos de clase',
-							inicio:'1684366844055',
-							fecha:'12/1/2023',
-							avatar:oswaldo,
-							respuestas:[
-								{
-									usuario:'Valentina Salas',
-									valor: 'y cuales son los metodos de clases que usted propone?',
-									inicio:'1684442065905',
-									fecha:'12/1/2023',
-									avatar:valentina,
-									
-		
-								},
-							]
-
-						}
-					 ]
+					 comentarios:[]
 
 					},
 					{
@@ -214,9 +185,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Valentina Salas',
 						avatar:valentina,
 						img:f2,
-						inicio:1684366844055,
+						inicio:1686509124322,
 						fecha:'12/1/2023',
-						contenido:'la alegria de tener los nuevos útiles escolares',
+						contenido:'El campus virtual puede estar en el icono en forma de libro abierto de la barra navegadora de esta app, si vas allí  pueden ver que les deje una muestra, aun no funciona pero pueden tomarlo como una idea , no aplique ningun estilo por motivos de tiempo, pero imagine lo que necesita y muchas de esas cosas se podran hacer sin ninguna complicación',
 						visto:false,
 						like:false,
 					     numLike:1,
@@ -228,14 +199,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 						ref: 'escuela',
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
-						img:v,
-						inicio:'168449395490',
+						img:v2,
+						inicio:'1686509124322',
 						fecha:'12/1/2023',
-						contenido:'queremos ayudarte a grabar, animate y sube tu demo',
+						contenido:'Vídeo promocional de nuestra amada universidad para las damas del Congreso🙏🏼, esto demuestra que una vez terminada la App puedes subir tus videos, puedes probar en este momento lade like y comenta ',
 						visto:false,
 						like:false,
 						numLike:null,
-						comentarios:[]
+						comentarios:[
+							{
+								usuario:'Valentina Salas',
+								valor: 'El video les quedo espectacular ',
+								inicio:'1686509124322',
+								fecha:'12/1/2023',
+								avatar:valentina,
+								respuestas:[]
+	
+							},
+							{
+								usuario:'Oswaldo Salas',
+								valor: 'Yo pase el video para demostrar la capacidad que tiene esta App de subir videos y de comentar . Pero ahora me doy cuenta que a nosotros los hombres no nos involucraron en nada. ',
+								inicio:'1686509124322',
+								fecha:'12/1/2023',
+								avatar:oswaldo,
+								respuestas:[
+									{
+										usuario:'Valentina Salas',
+										valor: 'ustedes no entienden muchas cosas de nosotras las mujeres. no te ofendas pero es para que veas la capasidad que tiene la App para responder.🤣🤣🤣',
+										inicio:'1686509124322',
+										fecha:'12/1/2023',
+										avatar:valentina,
+										
+			
+									},
+								]
+	
+							}
+						 ]
+						
 						  
 						
    
@@ -246,9 +247,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						name:'Oswaldo Salas',
 						avatar:oswaldo,
 						img:f3,
-						inicio:1684366844055,
+						inicio:1686509124322,
 						fecha:'12/1/2023',
-						contenido:'este es el contenido',
+						contenido:'la facilidad de  acceso a la App  es muy importante por eso podemos usar las ultimas tecnologías de la web para crear aplicaciones instalables en su movil. puede ir al avatar en la parte superior derecha de la App y allí encontrara un boton para instalar la app. en algunos móviles es posible que no se instale a la primera , solo tendria que recargar la pagina y volver a instalar. en Iphone todavia no se han realizado pruebas , no estoy seguro si funciona correctamente',
 						visto:false,
 						like:false,
 					    numLike:2,
@@ -263,28 +264,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 img:f8,
 					 inicio:1684366844055,
 					 fecha:'12/1/2023',
-					 contenido:'este es el contenido',
+					 contenido:'Esta App esta construida con React Js, tecnología de programación mas demandada en los ultimos años, ademas  con las metodologías de programación que usa Facebook e Instagram tambien implementando actualmente  las metodologías de WhatsApp y YouTube es una tarea ardua pero quiero lograr una App con mas cosas a su favor que desventajas, actualmente esta App esta en modo desarrollo y hay muchas funcionalidades deshabilitadas ',
 					 visto:false,
 					 like:false,
 					 numLike:3,
 					 comentarios:[]
 	
 					},
-					{
-						ref: 'escuela',
-						tipo:'img',
-						name:'Oswaldo Salas',
-						avatar:oswaldo,
-						img:f1,
-						inicio:1684366844055,
-						fecha:'12/1/2023',
-						contenido:'este es el contenido',
-						visto:false,
-						like:false,
-						numLike:3,
-						comentarios:[]
-	   
-					   },
+				
 					
 				]
 				}
@@ -293,7 +280,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			grados:[
 				{
-					name:'1er Grado',
+					name:'Oficina de Grados',
 					notificaciones:[
 						{
 						 name:'Oswaldo Salas',
@@ -472,7 +459,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						 tipo:'img',
 						 name:'Oswaldo Salas',
 						 avatar:oswaldo,
-						 img:e1,
+						 img:faltaImg,
 						 inicio:'',
 						 fecha:'',
 						 contenido:'',
@@ -490,7 +477,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							tipo:'img',
 							name:'Valentina Salas',
 							avatar:valentina,
-							img:e2,
+							img:faltaImg,
 							inicio:'',
 							fecha:'',
 							contenido:'',
@@ -520,7 +507,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					],
 			    },
 				{
-					name:'4to Grado',
+					name:'Diplomados',
 					notificaciones:[
 						{
 						 name:'Oswaldo Salas',
@@ -755,7 +742,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					img:valentina,
 					representados:['laura Fofia','Amelia'],
 					publicaciones:null,
-					grados:['1er Grado','4to Grado'],
+					grados:['Oficina de Grados','Diplomados','T.S.U','Teología','Departamentos de idiomas', 'Cursos', 'Academia de Musica'],
 					seleccionDelUsuario:{
 						grado:0,
                     },
@@ -805,9 +792,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					],
 				},
 			],
-			menuPrincipal: ['Crear Publicacion','Perfil Escolar', 'Matricula','Documentos', 
-				'Calendario', 'Registro descriptivo', 'Comunicación ', 'Galeria',
-				'Horarios','Recursos de Aprendizaje', 'Proyecto Escolar','Control App'
+			menuPrincipal: ['Contacto Universitario','Noticias','Horarios','Procesos Académicos','Sobre Cuotas'
+				
+				
+				// 'Crear Publicacion','Perfil Escolar', 'Matricula','Documentos', 
+				// 'Calendario', 'Registro descriptivo', 'Comunicación ', 'Galeria',
+				// 'Horarios','Recursos de Aprendizaje', 'Proyecto Escolar','Control App'
             ],
 			menuGrado:['Crear Publicacion', 'Perfil del Grado','Matricula','Documentos',
 				'Recursos de Aprendizaje', 'Calendario', 'Registro descriptivo', 'Comunicacion','Galeria', 

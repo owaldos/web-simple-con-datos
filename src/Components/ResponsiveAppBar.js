@@ -2,15 +2,63 @@ import React, {useContext} from 'react';
 import { Context } from '../store/appContext';
 
 
-import { Grid, Box,Container, Typography,Toolbar, AppBar, Divider} from '@mui/material';
-import logo from '../images/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.png'
+import { Grid, Box,Container, Typography,Toolbar, AppBar,} from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import { useNavigate } from 'react-router-dom';
 
 import './../App.css'
 import Navegador from './Navegador'
-import MiAvatar from './MiAvatar'
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, } from '@mui/material/styles';
+import {lightGreen} from '@mui/material/colors';
+
+
+
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+    },
+  },
+}));
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: '#B7F247 ',
+  '&:hover': {
+    backgroundColor: '#52b202',
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('xs')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color:'inherit'
+}));
+
+
 
 
 //  esta funcion es para que la barra navegadora se mueva
@@ -31,6 +79,8 @@ function HideOnScroll(props) {
 
 
 
+
+
 function ResponsiveAppBar(props) {
  
  const {store }=useContext(Context);
@@ -45,55 +95,66 @@ function ResponsiveAppBar(props) {
     <HideOnScroll {...props} >
       <Container disableGutters={true} >
         <AppBar elevation={1} >
-          <Toolbar disableGutters={true} sx={{justifyContent:'center'}} >
-            <Grid container   alignItems="center"  sx={{maxWidth:900, minWidth:350, mt:1}}>
+          <Toolbar disableGutters={true}   >
+            <Grid container   alignItems="center"  sx={{ minWidth:350, mt:1, }}>
 
 
               <Grid 
                 container 
                 alignItems="center"
+                justifyContent={'center'}
               >
                 <Grid  
-                  container 
+                  
+                  item xs={2} 
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"  
+
+                  >
+                   <div style={{maxHeight:'100px', display: 'flex' ,justifyContent: 'center', marginLeft:5}}>
+
+                    <img src= 'http://www.vitbikesvzla.com/pict/logopag.png.pagespeed.ce.AtdtHXJTVH.png' alt="logo" width={100} />
+                   </div>
+
+                </Grid>
+                <Grid  
+                  
                   item xs={9} 
                   direction="row"
                   justifyContent="flex-start"
                   alignItems="center"  
                   >
 
-                  <Box  ml={1}>
-                    <img src= {logo} alt="logo" width="30px" height="30px" />
-                  </Box>
-
-                
-                 
-                    <Typography
-                      variant="h5"
+                  <Typography
+                      variant="h6"
                       noWrap
-                      component="div"
+                      component="h1"
                       color='main.contrastText'
-                      sx={{mx: 1, fontWeight:'bold'}}
+                      sx={{mx: 1, fontWeight:'bold', marginLeft:3, fontSize: 'calc(1em + 1vw)'}}
                       onClick={handleClick}
                     >
-                           {store.escuela[0].name}
+                          Inversiones Vit Bikes de Vzla, C.A.  
                     </Typography>
+                 
+
+                  
+                
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      placeholder="Search…"
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                  </Search>
                  
                   
                 </Grid>
                     
                       
-                <Grid  
-                  container 
-                  item 
-                  xs={3}  
-                  justifyContent="flex-end"
-                  alignItems="center" 
-                  paddingRight={2}
-                >  
-                  <MiAvatar  foto={store.usuario[0].img} />
-                </Grid>
-
-
+              
               </Grid>
                    
                  
@@ -103,10 +164,10 @@ function ResponsiveAppBar(props) {
        
 
         </AppBar>
-       <Divider/>
+     
       </Container>
     </HideOnScroll>
-     <Box sx={{paddingY:6}}></Box>
+     <Box sx={{paddingY:5}}></Box>
        
   </>
   );

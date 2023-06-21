@@ -68,7 +68,7 @@ function ResponsiveAppBarGrado({props,gradoIndex})  {
 
                    
                     <Typography
-                      variant="h4"
+                      variant="h6"
                       noWrap
                       component="div"
                       color='main.contrastText'

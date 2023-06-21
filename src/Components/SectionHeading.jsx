@@ -63,6 +63,7 @@ const SectionHeading = ({number, name,boton}) => {
         alignItems="center"
         justifyContent={'end'}
         paddingRight={2}
+        mt={2}
         >
 
 

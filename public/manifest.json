@@ -1,8 +1,8 @@
 {
-  "short_name": "Faceschool",
-  "name": "Faceschool",
+  "short_name": "IUNAV",
+  "name": "IUNAV",
   "categories": ["lifestyle","music"],
-  "description": "App para escuelas",
+  "description": "App para IUNAV",
   "dir":"ltr",
   "display_override": ["standalone","fullscreen"],
   "display":"standalone",
@@ -20,7 +20,7 @@
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "180x180"
     }
   ],
   "lang": "en",

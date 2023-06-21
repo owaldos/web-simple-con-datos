@@ -5,7 +5,8 @@ import { Box} from '@mui/material';
 import MiCard from '../MiCard';
 
 import ResponsiveAppBar from '../ResponsiveAppBar';
-import EtiquetaComentarios from '../EtiquetaComentarios';
+
+import Slider from '../Slider';
 
 
 
@@ -32,11 +33,11 @@ function Home() {
 
     <Box sx={{ justifyContent:'center'}}>
 
+      <Slider  images={['inicial.png','3.jpeg','descarga.jpeg']} buttons={false} intervalImg={5000} autoPlay={true}/>
+
       {store.escuela[0].publicaciones.map((publicacion, index)=>(
         
-        <MiCard key={index} datos={publicacion} index={index}/>
-        
-         
+        <MiCard key={index} datos={publicacion} index={index}/> 
 
       ))}
       

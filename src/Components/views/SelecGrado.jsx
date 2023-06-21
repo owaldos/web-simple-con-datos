@@ -32,9 +32,9 @@ const SelecGrado = () => {
   
 
      <>
-       <BotonRegresar m={4} bg='#C1C5CA ' ir='/faceschool' text="Ir a la escuela"/>
+       <BotonRegresar m={4} bg='#C1C5CA ' ir='/faceschool' text="Regresar a IUNAV"/>
 
-        <SectionHeading name='Selecciona el grado'/>
+        <SectionHeading name='Selecciona '/>
 
         <ListaMenu array={store.usuario[0].grados} call={selecionDelusuario}/>
          

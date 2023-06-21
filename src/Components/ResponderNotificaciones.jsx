@@ -2,7 +2,8 @@ import React, {useContext} from 'react'
 import { Context } from '../store/appContext'
 import BotonRegresar from './BotonRegresar'
 import { useParams } from 'react-router-dom'
-
+import { Container, } from '@mui/material'
+import CuadroDialogo from './CuadroDialogo'
 
 const ResponderNotificaciones = () => {
     const {store, actions}= useContext(Context)
@@ -16,14 +17,12 @@ const ResponderNotificaciones = () => {
     
   return (
     <>
-    <BotonRegresar m={4} bg='#C1C5CA ' ir={params.donde==='escuela'?'/notificaciones':`/miGrado/${params.index}/notificacionesGrado`} text="Regresar"/>
+    <BotonRegresar  bg='#C1C5CA ' ir={params.donde==='escuela'?'/notificaciones':`/miGrado/${params.index}/notificacionesGrado`} text="Regresar"/>
 
-    <div> 
-     
-    {datos.contenido[0]}
-    <br></br>
-    {datos.contenido[1]}
-    </div>
+    <Container sx={{background:'#ffff', height:'100vh'}}> 
+
+    <CuadroDialogo datos={datos}/>
+    </Container>
     </>
   )
 }

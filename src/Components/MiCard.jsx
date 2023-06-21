@@ -260,10 +260,10 @@ export default function RecipeReviewCard ({datos, index}) {
           
      } 
 
-     <Divider/>
+    
 
    
-      <CardContent sx={{paddingY:0}}>
+      <CardContent sx={{paddingY:1}}>
         <Typography variant="body2" color="text.secondary">
           {datos.contenido}
         </Typography>

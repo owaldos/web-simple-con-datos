@@ -19,7 +19,7 @@ function Navegador() {
   
   return (
 
-    <Grid container   alignItems="center"  sx={{maxWidth:900, minWidth:350}}>
+    <Grid container   alignItems="center"  sx={{ minWidth:350, background:'#212F3D '}}>
 
 
         <Grid 
