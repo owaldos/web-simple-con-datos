@@ -15,6 +15,20 @@ video{
     animation-duration: 1s;
 }
 
+.fondo{
+    background-image: url('./images/carreteratierra.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+   
+}
+
+.listItemButton{
+    border:'1px solid #B2B2B2';
+    border-radius: '7px';
+    background-color:'#ffff';
+    display:'flex';
+    padding: 10px;
+}
 
 @keyframes aparecer{
     0%{opacity: 0;  }

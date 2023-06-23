@@ -37,7 +37,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#B7F247 ',
+  backgroundColor: '#3FE800 ',
   '&:hover': {
     backgroundColor: '#52b202',
   },
@@ -96,10 +96,10 @@ function ResponsiveAppBar(props) {
   return (
     <>
     <HideOnScroll {...props} >
-      <Container disableGutters={true} >
-        <AppBar elevation={1} >
-          <Toolbar disableGutters={true}   >
-            <Grid container   alignItems="center"  sx={{ minWidth:350, mt:1, }}>
+      
+        <AppBar elevation={1}   sx={{maxWidth:'900px', right:'auto'}} >
+          
+            <Grid container   alignItems="center"  sx={{ minWidth:350, mt:1, justifyContent:'center'}}>
 
 
               <Grid 
@@ -163,14 +163,14 @@ function ResponsiveAppBar(props) {
                  
               <Navegador/> 
             </Grid>
-          </Toolbar>
+          
        
 
         </AppBar>
      
-      </Container>
+      
     </HideOnScroll>
-     <Box sx={{paddingY:8}}></Box>
+     <Box sx={{paddingY:10}}></Box>
        
   </>
   );

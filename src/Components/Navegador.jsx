@@ -3,13 +3,13 @@ import {Context} from '../store/appContext'
 import {Home} from '@mui/icons-material';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
-import { Grid, IconButton,  Badge,  Tooltip} from '@mui/material';
+import { Grid, IconButton,  Badge, Box} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocalLibrary from '@mui/icons-material/LocalLibrary';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import { NavLink} from 'react-router-dom';
 import './../App.css'
-import { Typography } from '@mui/material'
+import { Typography,  } from '@mui/material'
 
 
 
@@ -18,8 +18,10 @@ function Navegador() {
    
   
   return (
+    <Box sx={{width:'100%'}}>
 
-    <Grid container   alignItems="center"  sx={{ minWidth:350, background:'#212F3D '}}>
+
+    <Grid container   alignItems="center"  sx={{ minWidth:350, background:'#212F3D ' ,justifyContent:'center', width:'100%'}}>
 
 
         <Grid 
@@ -99,10 +101,10 @@ function Navegador() {
             <NavLink 
             to={'/Notificaciones'}
             className={({ isActive }) =>
-                isActive ? "active":''
-            }
-            style={{textDecoration:'none'}}
-            >
+            isActive ? "active":''
+        }
+        style={{textDecoration:'none'}}
+        >
            
 
                 <IconButton color='secondary'sx={{paddingX:0}}>
@@ -144,7 +146,7 @@ function Navegador() {
             : ""
         }  
         style={{textDecoration:'none'}}
-            >
+        >
             
                 <IconButton  color='secondary'sx={{paddingX:0}}>
                 <MenuIcon />
@@ -160,6 +162,7 @@ function Navegador() {
 
     </Grid>
     
+                </Box>
   );
 }
 export default Navegador;

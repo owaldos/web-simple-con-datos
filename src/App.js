@@ -12,11 +12,6 @@ import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/materia
 import { lime,lightGreen } from '@mui/material/colors';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Notificaciones from './Components/views/Notificaciones';
-import Estudiantes from './Components/views/Estudiantes';
-import ProyectosGrado from './Components/views/ProyectosGrado';
-import NotificacionesGrado from './Components/views/NotificacionesGrado';
-import MenuGrado from './Components/views/MenuGrado';
-import Migrado from './Components/views/Migrado';
 import MiPerfil from './Components/views/MiPerfil';
 import ResponderNotificaciones from './Components/ResponderNotificaciones';
 
@@ -83,27 +78,7 @@ const router = createBrowserRouter([
   path: '/selecGrado',
   element: <SelecGrado/>
 },
-{
-  path: '/miGrado/:gradoIndex',
-  element: <Migrado/>
-},
 
-{
-  path: '/miGrado/:grado/estudiantes',
-  element:<Estudiantes/>
-},
-{
-  path: '/miGrado/:grado/proyectos',
-  element:<ProyectosGrado/>
-},
-{
-  path: '/miGrado/:grado/notificacionesGrado',
-  element:<NotificacionesGrado/>
-},
-{
-  path: '/miGrado/:grado/menuGrado',
-  element:<MenuGrado/>
-},
 
 ])
 

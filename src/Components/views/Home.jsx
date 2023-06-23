@@ -3,10 +3,12 @@ import {Context} from '../../store/appContext'
 import '../../App.css';
 import { Box} from '@mui/material';
 import MiCard from '../MiCard';
-
+import Footer from '../Footer';
 import ResponsiveAppBar from '../ResponsiveAppBar';
 
 import Slider from '../Slider';
+import SectionHeading from '../SectionHeading';
+import ListaMenu from '../ListaMenu';
 
 
 
@@ -22,29 +24,30 @@ function Home() {
   
   return (
     <>
-    <Box   sx={{ justifyContent:'center'}}  >
+    <Box   sx={{justifyContent:'center'}}  >
       
-      <header className="App-header">
+      <div style={{backgroundColor:'black'}}>hola </div>
         <ResponsiveAppBar /> 
-      </header>
-   
+      
+      <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>
     </Box>
 
 
     <Box sx={{ justifyContent:'center'}}>
 
-      <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>
-
-      {store.escuela[0].publicaciones.map((publicacion, index)=>(
-        
-        <MiCard key={index} datos={publicacion} index={index}/> 
-
-      ))}
-      
         
          
          
     </Box>
+    <SectionHeading 
+      name='Aquí encontraras lo que buscas ' 
+      color='#212F3D '
+    />
+    <div className='fondo'>
+
+    <ListaMenu array={store.menuPrincipal}/>
+    </div>
+    <Footer/>
     </>
   );
 }
