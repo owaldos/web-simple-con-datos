@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-simple-con-datos/static/css/main.e9c8cc38.css",
-    "main.js": "/web-simple-con-datos/static/js/main.eecd2059.js",
+    "main.js": "/web-simple-con-datos/static/js/main.9ec9b325.js",
     "static/js/787.3979902c.chunk.js": "/web-simple-con-datos/static/js/787.3979902c.chunk.js",
     "static/media/propuesta.mp4": "/web-simple-con-datos/static/media/propuesta.df6072bc18c444d1546c.mp4",
     "static/media/VID-20230531-WA0009.mp4": "/web-simple-con-datos/static/media/VID-20230531-WA0009.1b7dc431c163cc0cbe69.mp4",
@@ -73,11 +73,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/web-simple-con-datos/index.html",
     "main.e9c8cc38.css.map": "/web-simple-con-datos/static/css/main.e9c8cc38.css.map",
-    "main.eecd2059.js.map": "/web-simple-con-datos/static/js/main.eecd2059.js.map",
+    "main.9ec9b325.js.map": "/web-simple-con-datos/static/js/main.9ec9b325.js.map",
     "787.3979902c.chunk.js.map": "/web-simple-con-datos/static/js/787.3979902c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9c8cc38.css",
-    "static/js/main.eecd2059.js"
+    "static/js/main.9ec9b325.js"
   ]
 }
