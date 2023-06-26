@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-simple-con-datos/static/css/main.e9c8cc38.css",
-    "main.js": "/web-simple-con-datos/static/js/main.04dab3e8.js",
+    "main.js": "/web-simple-con-datos/static/js/main.c22dad91.js",
     "static/js/787.3979902c.chunk.js": "/web-simple-con-datos/static/js/787.3979902c.chunk.js",
     "static/media/propuesta.mp4": "/web-simple-con-datos/static/media/propuesta.df6072bc18c444d1546c.mp4",
     "static/media/VID-20230531-WA0009.mp4": "/web-simple-con-datos/static/media/VID-20230531-WA0009.1b7dc431c163cc0cbe69.mp4",
@@ -16,8 +16,12 @@
     "static/media/carreteratierra.jpg": "/web-simple-con-datos/static/media/carreteratierra.5509d69a158ba13058b1.jpg",
     "static/media/Foto de Oswaldo (1).jpg": "/web-simple-con-datos/static/media/Foto de Oswaldo (1).ebd3ad699cc65f53a626.jpg",
     "static/media/Captura desde 2023-06-11 13-12-59.png": "/web-simple-con-datos/static/media/Captura desde 2023-06-11 13-12-59.79b386e2be15eb162fec.png",
+    "static/media/316_1.jpg": "/web-simple-con-datos/static/media/316_1.4545cd12f999c67dd06f.jpg",
     "static/media/repuestos.jpg": "/web-simple-con-datos/static/media/repuestos.793edae2448b03dae0c5.jpg",
+    "static/media/431_1.jpg": "/web-simple-con-datos/static/media/431_1.4f5a4f727b59ffe43a1d.jpg",
     "static/media/transparent-student-icon-blog-logo-school-5eab0201b5f501.png": "/web-simple-con-datos/static/media/transparent-student-icon-blog-logo-school-5eab0201b5f501.3688803115882654737453.6a23658d51360227a1c1.png",
+    "static/media/432_1.jpg": "/web-simple-con-datos/static/media/432_1.357982085310df2fd039.jpg",
+    "static/media/313_1.jpg": "/web-simple-con-datos/static/media/313_1.d2b87482a8ad1b277985.jpg",
     "static/media/p3.jpg": "/web-simple-con-datos/static/media/p3.20ae8b04bd5f050522d3.jpg",
     "static/media/p4.jpg": "/web-simple-con-datos/static/media/p4.30cd5b97dadefd6d2c4b.jpg",
     "static/media/p2 (1).jpg": "/web-simple-con-datos/static/media/p2 (1).a41b2c7e17fe25f26f98.jpg",
@@ -69,11 +73,11 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/web-simple-con-datos/index.html",
     "main.e9c8cc38.css.map": "/web-simple-con-datos/static/css/main.e9c8cc38.css.map",
-    "main.04dab3e8.js.map": "/web-simple-con-datos/static/js/main.04dab3e8.js.map",
+    "main.c22dad91.js.map": "/web-simple-con-datos/static/js/main.c22dad91.js.map",
     "787.3979902c.chunk.js.map": "/web-simple-con-datos/static/js/787.3979902c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9c8cc38.css",
-    "static/js/main.04dab3e8.js"
+    "static/js/main.c22dad91.js"
   ]
 }
