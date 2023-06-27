@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-simple-con-datos/static/css/main.e9c8cc38.css",
-    "main.js": "/web-simple-con-datos/static/js/main.c2b8034d.js",
+    "main.js": "/web-simple-con-datos/static/js/main.2c7fb58d.js",
     "static/js/787.3979902c.chunk.js": "/web-simple-con-datos/static/js/787.3979902c.chunk.js",
     "static/media/propuesta.mp4": "/web-simple-con-datos/static/media/propuesta.df6072bc18c444d1546c.mp4",
     "static/media/VID-20230531-WA0009.mp4": "/web-simple-con-datos/static/media/VID-20230531-WA0009.1b7dc431c163cc0cbe69.mp4",
@@ -67,17 +67,18 @@
     "static/media/roboto-vietnamese-400-normal.woff2": "/web-simple-con-datos/static/media/roboto-vietnamese-400-normal.3230f9b040f3c630e0c3.woff2",
     "static/media/roboto-vietnamese-700-normal.woff2": "/web-simple-con-datos/static/media/roboto-vietnamese-700-normal.3425a701027d0699e369.woff2",
     "static/media/roboto-vietnamese-300-normal.woff2": "/web-simple-con-datos/static/media/roboto-vietnamese-300-normal.32fc45a3d1e8ea11fabc.woff2",
+    "static/media/footer.webp": "/web-simple-con-datos/static/media/footer.0d000a7a84033d3f13bc.webp",
     "static/media/roboto-greek-ext-500-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-500-normal.6fb9cffb1d3e72bf9293.woff2",
     "static/media/roboto-greek-ext-400-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-400-normal.169619821ea93019d1bb.woff2",
     "static/media/roboto-greek-ext-300-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-300-normal.35b9d6be04b95f0f0530.woff2",
     "static/media/roboto-greek-ext-700-normal.woff2": "/web-simple-con-datos/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/web-simple-con-datos/index.html",
     "main.e9c8cc38.css.map": "/web-simple-con-datos/static/css/main.e9c8cc38.css.map",
-    "main.c2b8034d.js.map": "/web-simple-con-datos/static/js/main.c2b8034d.js.map",
+    "main.2c7fb58d.js.map": "/web-simple-con-datos/static/js/main.2c7fb58d.js.map",
     "787.3979902c.chunk.js.map": "/web-simple-con-datos/static/js/787.3979902c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9c8cc38.css",
-    "static/js/main.c2b8034d.js"
+    "static/js/main.2c7fb58d.js"
   ]
 }
