@@ -5,9 +5,9 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
 import { Grid, IconButton,  Badge, Box} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import LocalLibrary from '@mui/icons-material/LocalLibrary';
+
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-import { NavLink} from 'react-router-dom';
+import { NavLink, Link} from 'react-router-dom';
 import './../App.css'
 import { Typography,  } from '@mui/material'
 
@@ -15,22 +15,27 @@ import { Typography,  } from '@mui/material'
 
 function Navegador() {
     const {store} = useContext(Context)
+
+    const handleScroll=()=>{
+        window.scrollTo(0,3000)
+        console.log('Scroll')
+    }
    
   
   return (
     <Box sx={{width:'100%'}}>
 
 
-    <Grid container   alignItems="center"  sx={{ minWidth:350, background:'#212F3D ' ,justifyContent:'center', width:'100%'}}>
+    <Grid container   alignItems="center"  sx={{ minWidth:350, background:'#212F3D ' , width:'100%'}}>
 
 
         <Grid 
         item
         container
         direction="row"
-        justifyContent="center"
+        justifyContent="start"
         alignItems="center"
-        columnSpacing={{xs:2,sm:8, md:14}}
+        columnSpacing={{xs:2}}
         >
         <Grid item >
             <NavLink 
@@ -39,30 +44,30 @@ function Navegador() {
                 isActive ? "active" : ''
 
             }
-          
+            style={{textDecoration:'none',marginLeft:'24px'}}
             >
                 
            
-                <IconButton  color='secondary' sx={{paddingX:0}}>
+                <IconButton  color='secondary' sx={{paddingX:0}} >
                 <AddBusinessIcon />
                  
-                </IconButton>
                 <Typography 
                 variant="body2" 
                 component='p'  
                 color= 'secondary'
                 display='inline'
-                sx={{fontSize:'calc(5px + 1vw)'}}
+               
                 >
                     Catálogo
                 </Typography>
+                 </IconButton>
            
             </NavLink>
         </Grid>
         
 
         <Grid item>
-            <NavLink to={'/equipoTrabajo'}
+            <Link to={''} onClick={handleScroll}
                 className={({ isActive, isPending }) =>
                 isActive
                 ? "active"
@@ -76,65 +81,23 @@ function Navegador() {
                 <IconButton color='secondary'sx={{paddingX:0}}>
                 
                 <SwitchAccountIcon />
+
                 <Typography 
                 variant="body2" 
                 component='p'  
                 color= 'secondary'
                 display='inline'
-                sx={{fontSize:'calc(5px + 1vw)'}}
+                
                 >
                     Contáctanos
                 </Typography>
                 </IconButton >
              
-            </NavLink>
+            </Link>
         </Grid>
 
             
 
-
-       
-
-
-
-        <Grid item>
-            <NavLink 
-            to={'/Notificaciones'}
-            className={({ isActive }) =>
-            isActive ? "active":''
-        }
-        style={{textDecoration:'none'}}
-        >
-           
-
-                <IconButton color='secondary'sx={{paddingX:0}}>
-                <Badge
-                
-                badgeContent={store.escuela[0].notificaciones.filter(item=>item.visto===false).length} 
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                color="error"
-                >
-                    <NotificationsActiveIcon />
-                </Badge>
-                
-                <Typography 
-                variant="body2" 
-                component='p'  
-                color= 'secondary'
-                display='inline'
-                sx={{fontSize:'calc(5px + 1vw)'}}
-                >
-                    Notificaciones
-                </Typography>
-                </IconButton>
-          
-            </NavLink>
-            
-        </Grid>
-        
 
         <Grid item>
             <NavLink to={'/menu'}
@@ -147,11 +110,21 @@ function Navegador() {
         }  
         style={{textDecoration:'none'}}
         >
-            
+            {store.registro.login &&
+
                 <IconButton  color='secondary'sx={{paddingX:0}}>
                 <MenuIcon />
-                <pre style={{fontSize:'calc(5px + 1vw)'}}> Menú</pre>
+                <Typography 
+                variant="body2" 
+                component='p'  
+                color= 'secondary'
+                display='inline'
+                
+                >
+                    Contáctanos
+                </Typography>
                 </IconButton>
+            }
            
             </NavLink>
         </Grid>

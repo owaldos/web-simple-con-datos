@@ -7,19 +7,27 @@ import f4 from '../images/diego.png'
 import f5 from '../images/2021-07-11-212717.jpg'
 import f6 from '../images/2022-03-22-111021.jpg'
 import f7 from '../images/2022-03-22-120958.jpg'
-import i1 from '../images/inicial.png'
 import f8 from '../images/h_react.jpg'
-import v2 from '../images/VID-20230531-WA0009.mp4'
-import e1 from '../images/1685557836179.jpg'
-import e2 from '../images/1685557836200.jpg'
 import e4 from '../images/compres42.mp4'
 import e5 from '../images/compress43.mp4'
 import faltaImg from '../images/falta imagen.png'
 import sinFoto from '../images/sin foto.jpg'
-import propuesta from '../images/propuesta.mp4'
+import p1 from '../images/313_1.jpg'
+import p2 from '../images/316_1.jpg'
+import p3 from '../images/431_1.jpg'
+import p4 from '../images/432_1.jpg'
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			foto:null,
+			config:['Publicar un Articulo', 'Eliminar Articulo', 'Modificar Articulo', 'Otros'],
+			registro:{
+				key:'123456',
+				usuario:'oswaldo',
+				password:'123',
+				login:false
+				
+			},
 			cargado:false,
 			escuela: [
 				{ 
@@ -167,9 +175,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 					 tipo:'img',
 					 ref: 'escuela',
-					 name:'Oswaldo Salas',
+					 name:'CINTA ANTI PINCHAZOS RIN 26 (ALCANZA PARA LOS DOS RINES)',
+					 precio:12,
 					 avatar:oswaldo,
-					 img:i1,
+					 img:p1,
 					 inicio:'1686509124322',
 					 fecha:'11/06/2023',
 					 contenido:'La pagina inicial conviene que sea  complatamente dinámica para modificarla las veces que desee desde su móvil.',
@@ -182,9 +191,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 						ref: 'escuela',
 						tipo:'img',
-						name:'Valentina Salas',
+						name:'BARRA PARA MANUBRIO EN ALUMINIO',
+						precio:16,
 						avatar:valentina,
-						img:f2,
+						img:p2,
 						inicio:1686509124322,
 						fecha:'12/1/2023',
 						contenido:'El campus virtual puede estar en el icono en forma de libro abierto de la barra navegadora de esta app, si vas allí  pueden ver que les deje una muestra, aun no funciona pero pueden tomarlo como una idea , no aplique ningun estilo por motivos de tiempo, pero imagine lo que necesita y muchas de esas cosas se podran hacer sin ninguna complicación',
@@ -195,11 +205,12 @@ const getState = ({ getStore, getActions, setStore }) => {
    
 					},
 					{
-						tipo:'video',
+						tipo:'img',
 						ref: 'escuela',
-						name:'Oswaldo Salas',
+						name:'BOLSO KOALA CON PORTA TERMO',
+						precio:20,
 						avatar:oswaldo,
-						img:v2,
+						img:p3,
 						inicio:'1686509124322',
 						fecha:'12/1/2023',
 						contenido:'Vídeo promocional de nuestra amada universidad para las damas del Congreso🙏🏼, esto demuestra que una vez terminada la App puedes subir tus videos, puedes probar en este momento lade like y comenta ',
@@ -244,9 +255,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 						ref: 'escuela',
 						tipo:'img',
-						name:'Oswaldo Salas',
+						name:'CINTA VINIL REFLECTIVO TAMAÑO CARTA PARA RINES COLORES VARIOS',
+						precio:12,
 						avatar:oswaldo,
-						img:f3,
+						img:p4,
 						inicio:1686509124322,
 						fecha:'12/1/2023',
 						contenido:'la facilidad de  acceso a la App  es muy importante por eso podemos usar las ultimas tecnologías de la web para crear aplicaciones instalables en su movil. puede ir al avatar en la parte superior derecha de la App y allí encontrara un boton para instalar la app. en algunos móviles es posible que no se instale a la primera , solo tendria que recargar la pagina y volver a instalar. en Iphone todavia no se han realizado pruebas , no estoy seguro si funciona correctamente',
@@ -259,7 +271,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					{
 					 ref: 'escuela',
 					 tipo:'img',
-					 name:'Oswaldo Salas',
+					 name:'Oswaldo Salas eflkweflwef wenenwlkfnwef ;kejjfwekjjkcwe ke ecwek;jbbwekfjwef ;wkejfwkej   k;wjebfwke  wenfnkjke   kjkjsdv sk csec  ebecb c ec ec wen cewfe n cwe ffwe cwfwe wef  c we  jse cjwbekj we ckjwjefkwjej wekjfjwe ccwkewe',
+					 precio:52,
 					 avatar:oswaldo,
 					 img:f8,
 					 inicio:1684366844055,
@@ -792,7 +805,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					],
 				},
 			],
-			menuPrincipal: [
+			categorias: [
 				'ACCESORIOS',
 				'ACCESORIOS MOTOS',
 				'BICICLETAS',
@@ -977,11 +990,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 	
 	actions: {
+		registro:(datos)=>{
+			
+			const store= getStore();
+			if(datos.key=== store.registro.key){
+				store.registro.usuario=datos.usuario
+                store.registro.password= datos.password
+				
+				setStore( store)
+				
+			}
+
+		},
+		login:(datos)=>{
+			const store= getStore();
+		 if(store.registro.password===datos.password & store.registro.usuario===datos.usuario){
+               store.registro.login=true
+			   setStore(store)
+		 }
+
+
+		},
 		cargado:()=>{
 			const store= getStore();
 			store.cargado=true
 			setStore( store)
 
+		},
+		fotoArticulo:(data)=>{
+			const store= getStore();
+			store.foto= data
+			setStore( store)
 		},
 		
 		fecha:(segundos)=>{

@@ -1,19 +1,42 @@
 import React from 'react'
-import {  Box, Typography, } from '@mui/material'
-
+import {  Box, Grid, IconButton, Typography, } from '@mui/material'
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 import "../App.css"
+import { useNavigate } from 'react-router-dom';
 
 
 
-const SectionHeading = ({name, color,}) => {
+const SectionHeading = ({name, color, regresar, ruta}) => {
+  const navigate= useNavigate()
+
+  const handleClick = () => {
+     navigate(ruta)
+  }
 
   return (
-    <Box className='aparecer'  sx={{ my:0, background:color, paddingY:1 , display: 'flex', justifyContent: 'center'} } bg='secondary'>
+    <Grid container className='aparecer'  sx={{ my:0, background:color, paddingY:1 , display: 'flex', justifyContent: 'center', alignItems: 'center'} } bg='secondary'>
+      <Grid item xs={!regresar?0:1}>
 
-    
-     <Typography variant="h6" color='secondary' > {name} </Typography>
+          {regresar &&
+          
+            <IconButton onClick={handleClick}>
+              <ReplyAllIcon  color='secondary'  />
+            </IconButton>
+          }
+      </Grid>
+
+      <Grid item xs={!regresar?12:10}>
+        <Box justifyContent={'center'} display='flex'>
+
+          <Typography variant="h6" color='secondary' > {name} </Typography>
+        </Box>
+      </Grid>
+
+
+
+
               
-  </Box>
+  </Grid>
   )
 }
 

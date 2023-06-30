@@ -4,9 +4,7 @@ import styled from 'styled-components'
 const MySlider = styled.img`
 
 width:100%;
-
 object-fit:cover;
-
 opacity:0;
 transition: 1s;
 &.loaded{

@@ -1,25 +1,21 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import injectContext from './store/appContext';
 import Home from './Components/views/Home'
-import EquipoTrabajo from './Components/views/EquipoTrabajo';
-import SelecGrado from './Components/views/SelecGrado';
 import Error from './Components/Error';
 import MiMenu from './Components/views/MiMenu'
 import SignIn from './Components/views/SignIn';
 import SignUp from './Components/views/SignUp';
+import NuevoProducto from './Components/views/NuevoProducto';
 import './index.css';
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { lime,lightGreen } from '@mui/material/colors';
+import {lightGreen } from '@mui/material/colors';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Notificaciones from './Components/views/Notificaciones';
-import MiPerfil from './Components/views/MiPerfil';
-import ResponderNotificaciones from './Components/ResponderNotificaciones';
+
+import ListaProductos from './Components/ListaProductos';
+import Producto from './Components/views/Producto';
 
 const theme= createTheme({
 
-  
-  
-  
     palette: {
       primary: {
         main:'#ffff',
@@ -42,26 +38,25 @@ const router = createBrowserRouter([
 
 },
 {
-  path: '/equipoTrabajo',
-  element:<EquipoTrabajo/>,
+  path: '/web-simple-con-datos/lista-productos/:categoria',
+  element:<ListaProductos/>,
   
 },
+{
+  path: '/web-simple-con-datos/producto/:categoria/:index',
+  element:<Producto/>
+},
 
-{
-  path: '/notificaciones',
-  element:<Notificaciones/>
-},
-{
-  path: '/responderNotificaciones/:donde/:index',
-  element:<ResponderNotificaciones/>
-},
+
+
 {
   path: '/menu',
   element:<MiMenu/>
 },
 
+
 {
-  path: '/Ingresar',
+  path: '/signIn',
   element:<SignIn/>
 },
 {
@@ -69,14 +64,25 @@ const router = createBrowserRouter([
   element:<SignUp/>
 },
 {
-  path: '/Mi Perfil/:indexPersonal',
-  element:<MiPerfil/>
+  path: '/Publicar un Articulo',
+  element:<NuevoProducto/>
 },
 
-// estos son los path del grado
 {
-  path: '/selecGrado',
-  element: <SelecGrado/>
+  path: '/Editar Articulo',
+  element:<Error/>
+},
+{
+  path: '/Eliminar Articulo',
+  element:<Error/>
+},
+{
+  path: '/Modificar Articulo',
+  element:<Error/>
+},
+{
+  path: '/Otros',
+  element:<Error/>
 },
 
 
@@ -86,40 +92,6 @@ const router = createBrowserRouter([
 function App() {
 
 
-const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
-
-useEffect(() => {
-  window.addEventListener("beforeinstallprompt", (event) => {
-    // Prevent the mini-infobar from appearing on mobile.
-    event.preventDefault();
-    console.log("👍", "beforeinstallprompt", event);
-    // Stash the event so it can be triggered later.
-    window.deferredPrompt = event;
-    // Remove the 'hidden' class from the install button container.
-    setIsReadyForInstall(true);
-  });
-}, []);
-
-async function downloadApp() {
-  console.log("👍", "butInstall-clicked");
-  const promptEvent = window.deferredPrompt;
-  if (!promptEvent) {
-    // The deferred prompt isn't available.
-    console.log("oops, no prompt event guardado en window");
-    return;
-  }
-  // Show the install prompt.
-  promptEvent.prompt();
-  // Log the result
-  const result = await promptEvent.userChoice;
-  console.log("👍", "userChoice", result);
-  // Reset the deferred prompt variable, since
-  // prompt() can only be called once.
-  window.deferredPrompt = null;
-  // Hide the install button.
-  setIsReadyForInstall(false);
-}
- 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>

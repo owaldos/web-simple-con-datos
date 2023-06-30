@@ -1,24 +1,23 @@
-import React, { useEffect} from 'react';
-import Avatar from '@mui/material/Avatar';
+import React, { useEffect, useContext} from 'react';
+import {Context} from '../../store/appContext'
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import logo from '../../images/logopag.png.pagespeed.ce.AtdtHXJTVH.png'
+
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        FaceSchool
+      <Link  href="" style={{textDecoration:'none', color:'black'}}>
+        VIT BIKES
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -26,15 +25,18 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+
 
 export default function SignUp() {
 
+  const {store, actions}= useContext(Context)
+  const navigate=useNavigate()
 
 
   useEffect(() => {
     window.scrollTo(0,0)
    
+  
   
   }, [])
   
@@ -42,16 +44,24 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
+    
+    let datos={
+      key: data.get('key'),
+      usuario: data.get('usuario'),
       password: data.get('password'),
-    });
+    };
+    console.log(datos)
+    actions.registro(datos)
+    if(store.registro.key===datos.key){
+      navigate('/signIn')
+    }
+    
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+       
         <Box
           sx={{
             marginTop: 8,
@@ -60,9 +70,7 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
+           <img src= {logo} alt="logo" width={80} />
           <Typography component="h1" variant="h5">
             Registro
           </Typography>
@@ -70,35 +78,29 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                  name="key"
                   required
                   fullWidth
-                  id="firstName"
-                  label="Nombre"
+                  type="password"
+                  id="key"
+                  label="Clave para registro es 123456"
                   autoFocus
+                  color= 'secondary'
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Apellido"
-                  name="lastName"
+                  id="usuario"
+                  label="Usuario"
+                  name="usuario"
                   autoComplete="family-name"
+                  color= 'secondary'
+
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Correo"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
+             
               <Grid item xs={12}>
                 <TextField
                   required
@@ -108,26 +110,23 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  color='secondary'
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
+              
             </Grid>
             <Button
               type="submit"
               fullWidth
               variant="contained"
+              color='secondary'
               sx={{ mt: 3, mb: 2 }}
             >
               Registrarme
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link to={'/Ingresar'} >
+                <Link to={'/signIn'} style={{textDecoration:'none', color:'black'}} >
                 Ya estas registrado? ingresa aquí.
                 </Link>
               </Grid>
@@ -136,6 +135,6 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-    </ThemeProvider>
+   
   );
 }

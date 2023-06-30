@@ -35,7 +35,7 @@ const ListaMenu = ({array, call}) => {
                     sx={{ 
                       border:'1px solid #B2B2B2', 
                       borderRadius: '7px', 
-                      background:'rgba(225,225,225,0.9)',
+                      background:'rgba(225,225,225,0.6)',
                       display:'flex',
                       paddingX:1,
                       backdropFilter:'blur(10px)'
@@ -43,7 +43,7 @@ const ListaMenu = ({array, call}) => {
                      }}
                     onClick={()=>handleClick(index)}
                     >
-                      <Grid item xs={2} sx={{display:'flex', marginRight:1}}> 
+                      {/* <Grid item xs={2} sx={{display:'flex', marginRight:1}}> 
                         <ListItemIcon  >
                           {index % 2 === 0 
                           ? 
@@ -51,11 +51,12 @@ const ListaMenu = ({array, call}) => {
                           : <MailIcon color='black' />}
                         </ListItemIcon>
                         
-                      </Grid>
-                      <Grid item xs={10} display={'inline'}> 
+                      </Grid> */}
+                      <Grid item xs={12} display={'inline'} justifyContent={'center'}> 
                         
                           <ListItemText 
-                            secondary={<p style={{color:'black',textShadow: '1px 1px 30px #3FE800 ,-1px -1px 1em white', fontWeight:'bold'}}>{i}</p>}  />
+                           
+                           secondary={<p style={{color:'black',textShadow: '1px 1px 20px white ,-1px -1px 20px white', fontWeight:'bold', display:'inline'}}>{i}</p>}  />
                         </Grid>
                     </ListItemButton>
                   </Grid>

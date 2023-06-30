@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { Context } from '../store/appContext';
 
 
-import { Grid, Box,Container, Typography,Toolbar, AppBar,} from '@mui/material';
+import { Grid, Box, Typography,Toolbar, AppBar,} from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import { useNavigate } from 'react-router-dom';
@@ -115,7 +115,7 @@ function ResponsiveAppBar(props) {
                   alignItems="center"  
 
                   >
-                   <div style={{ display: 'flex' ,justifyContent: 'center', marginLeft:5}}>
+                   <div  onClick={()=>navigate('/signIn')} style={{ display: 'flex' ,justifyContent: 'center', marginLeft:5}}>
 
                     <img src= {logo} alt="logo" width={80} />
                    </div>
@@ -170,7 +170,7 @@ function ResponsiveAppBar(props) {
      
       
     </HideOnScroll>
-     <Box sx={{paddingY:10}}></Box>
+     <Box sx={{paddingY:6}}></Box>
        
   </>
   );
