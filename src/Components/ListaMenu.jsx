@@ -43,15 +43,7 @@ const ListaMenu = ({array, call}) => {
                      }}
                     onClick={()=>handleClick(index)}
                     >
-                      {/* <Grid item xs={2} sx={{display:'flex', marginRight:1}}> 
-                        <ListItemIcon  >
-                          {index % 2 === 0 
-                          ? 
-                          <InboxIcon  color='black' /> 
-                          : <MailIcon color='black' />}
-                        </ListItemIcon>
-                        
-                      </Grid> */}
+                     
                       <Grid item xs={12} display={'inline'} justifyContent={'center'}> 
                         
                           <ListItemText 

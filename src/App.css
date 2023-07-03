@@ -16,9 +16,10 @@ video{
 }
 
 .fondo{
-    background-image: url('./images/carreteratierra.jpg');
+    background-image: url('./images/carrera.jpg');
     background-attachment: fixed;
     background-size: cover;
+    min-height: 200px;
    
 }
 

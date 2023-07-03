@@ -19,33 +19,54 @@ function Home() {
   
   }, [])
   
-  const {store}= useContext(Context)
+  const {store, actions}= useContext(Context)
   const navigate= useNavigate()
 
-
+ 
   const selecCategoria=(index)=>{
     
     navigate(`/web-simple-con-datos/lista-productos/${index}`)
   }
+
+   const handleCerrarBorrar= ()=>{
+    actions.modoBorrar(false)
+    navigate('/menu')
+   }
   
   return (
     <>
     <Box   sx={{justifyContent:'center'}}  >
       
-      <div style={{backgroundColor:'black'}}>hola </div>
+     
         <ResponsiveAppBar /> 
       
       <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>
+    { store.modoBorrar &&
+     
+     <div onClick={handleCerrarBorrar} >
+      <h3 >Cancelar  modo borrar</h3> 
+     </div>
+
+    }
     </Box>
 
 
     <SectionHeading 
-      name='Aquí encontraras lo que buscas ' 
-      color='#212F3D '
+      name={!store.modoBorrar ? 'Aquí encontraras lo que buscas ' :'Busca articulo por borrar'}
+      color={!store.modoBorrar ? '#212F3D ': 'red'}
     />
     <div className='fondo'>
 
-    <ListaMenu array={store.categorias} call={selecCategoria}/>
+      {store.listaCategorias.length<1
+        ?
+        <div style={{background:'black'}}> 
+          <h2 style={{color:'#ffff', textAlign:'center'}}>No existe ninguna categoria</h2>
+        </div>
+        :
+        <ListaMenu array={store.listaCategorias} call={selecCategoria}/>
+
+      }
+
     </div>
     <Footer/>
     </>

@@ -15,22 +15,25 @@ export default function MiMenu({array}) {
   
   }, [])
   
-  const {store}= useContext(Context)
+  const {store, actions}= useContext(Context)
   const navigate= useNavigate()
 
 
   const selecCategoria=(index)=>{
     
-    
+    if(store.config[index]=== 'Eliminar Articulo'){
+      actions.modoBorrar(true)
+      navigate('/web-simple-con-datos')
+    }  else navigate(`/${store.config[index]}`)
    
-    navigate(`/${store.config[index]}`)
+    
   }
   
   return (
     <>
     <Box   sx={{justifyContent:'center'}}  >
       
-      <div style={{backgroundColor:'black'}}>hola </div>
+     
         <ResponsiveAppBar /> 
       
       <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>

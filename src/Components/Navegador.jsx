@@ -121,7 +121,7 @@ function Navegador() {
                 display='inline'
                 
                 >
-                    Contáctanos
+                    Configuración
                 </Typography>
                 </IconButton>
             }

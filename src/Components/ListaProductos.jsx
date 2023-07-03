@@ -7,7 +7,7 @@ import Slider from './Slider'
 import SectionHeading from './SectionHeading'
 import MiCard from './MiniCard'
 import Footer from './Footer'
-
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -15,37 +15,53 @@ const ListaProductos = () => {
 
     const {store, actions}= useContext(Context)
     const params= useParams();
-
+    const navigate= useNavigate()
 
     useEffect(() => {
         window.scrollTo(0,0)
       
       }, [])
+
+      const handleCerrarBorrar= ()=>{
+        actions.modoBorrar(false)
+        navigate('/menu')
+       }
    
   return (
     <>
      <Box   sx={{justifyContent:'center'}}  >
       
-      <div style={{backgroundColor:'black'}}>hola </div>
-        <ResponsiveAppBar /> 
       
+        <ResponsiveAppBar /> 
       <Slider  images={['p1.jpg','p2.jpg','p3.jpg','p4.jpg']} buttons={false} intervalImg={5000} autoPlay={true}/>
+      { store.modoBorrar &&
+     
+     <div onClick={handleCerrarBorrar} >
+      <h3 >Cancelar  modo borrar</h3> 
+     </div>
+
+    }  
     </Box>
 
 
    
     <SectionHeading 
-      name={store.categorias[params.categoria]} 
-      color='#212F3D '
+      name={!store.modoBorrar ? store.listaCategorias[params.categoria]:'Elige para borrar'} 
+      color={!store.modoBorrar ? '#212F3D ':'red'}
       regresar={true}
       ruta='/web-simple-con-datos'
     />
 
 
-    <Box display={'flex'} justifyContent={'center'} flexWrap={'wrap'} sx={{minWidth:'349px'}}>
+    <Box display={'flex'} justifyContent={'center'} flexWrap={'wrap'} sx={{minWidth:'349px', minHeight:'200px'}}>
 
-        {store.escuela[0].publicaciones.map((publicacion, index)=>(
-                
+        {store.articulosPorCategoria[params.categoria].articulos.length <=0 
+
+          ?
+          <p>No existe ningun articulo registrado</p>
+          :
+         store.articulosPorCategoria[params.categoria].articulos.map((publicacion, index)=>(
+               
                 <MiCard key={index} datos={publicacion} index={index} categoria={params.categoria}/> 
 
             ))}
