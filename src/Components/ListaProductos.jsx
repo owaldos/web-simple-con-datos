@@ -58,7 +58,7 @@ const ListaProductos = () => {
         {store.articulosPorCategoria[params.categoria].articulos.length <=0 
 
           ?
-          <p>No existe ningun articulo registrado</p>
+          <h4>No existe ningun articulo registrado</h4>
           :
          store.articulosPorCategoria[params.categoria].articulos.map((publicacion, index)=>(
                
